@@ -2,7 +2,8 @@ import 'package:djezzy/Djezzy/screen/DjezzyDashboard.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyFlexy.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyHome.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyLoading.dart';
-import 'package:djezzy/Djezzy/screen/DjezzyOffers.dart';
+// import 'package:djezzy/Djezzy/screen/DjezzyOffers.dart';
+import 'package:djezzy/Djezzy/screen/DjezzyOffersTest.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyProfile.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyQuiz.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,8 @@ class Djezzy extends StatelessWidget {
         DjezzyLoading.tag: (context) => DjezzyLoading(),
         DjezzyHome.tag: (context) => DjezzyHome(),
         DjezzyDashboard.tag: (context) => DjezzyDashboard(),
-        DjezzyOffers.tag: (context) => DjezzyOffers(),
+        // DjezzyOffers.tag: (context) => DjezzyOffers(),
+        DjezzyOffersTest.tag: (context) => DjezzyOffersTest(),
         DjezzyQuiz.tag: (context) => DjezzyQuiz(),
         DjezzyProfile.tag: (context) => DjezzyProfile(),
         DjezzyFlexy.tag: (context) => DjezzyFlexy(),

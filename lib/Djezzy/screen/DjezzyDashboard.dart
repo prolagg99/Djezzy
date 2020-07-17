@@ -1,3 +1,4 @@
+import 'package:djezzy/Djezzy/screen/DjezzyOffersTest.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyImages.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,7 +7,7 @@ import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 
 import 'package:djezzy/Djezzy/screen/DjezzyFlexy.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyHome.dart';
-import 'package:djezzy/Djezzy/screen/DjezzyOffers.dart';
+// import 'package:djezzy/Djezzy/screen/DjezzyOffers.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyProfile.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyQuiz.dart';
 
@@ -22,7 +23,7 @@ class DjezzyDashboardState extends State<DjezzyDashboard> {
 
   final List<Widget> _children = [
     DjezzyHome(),
-    DjezzyOffers(),
+    DjezzyOffersTest(),
     DjezzyQuiz(),
     DjezzyFlexy(),
     DjezzyProfile(),
