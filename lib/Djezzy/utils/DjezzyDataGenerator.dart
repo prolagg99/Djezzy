@@ -68,3 +68,157 @@ List<DjezzyInternet> getInternet() {
 
   return list;
 }
+
+List<DjezzyImtiyaz> getImtiyaz() {
+  List<DjezzyImtiyaz> list = List<DjezzyImtiyaz>();
+
+  DjezzyImtiyaz model1 = DjezzyImtiyaz();
+  model1.imtiyaz = 'IMTIYAZ 190';
+  model1.delay = '24 Hours';
+  model1.price = '190 DA';
+
+  model1.offre1 = '3 Gb';
+  model1.offre2 = '';
+  model1.offre3 = '1000 DA';
+
+  model1.imgoffre1 = ic_world;
+  model1.imgoffre2 = ic_world2;
+  model1.imgoffre3 = ic_server;
+
+  DjezzyImtiyaz model2 = DjezzyImtiyaz();
+  model2.imtiyaz = 'IMTIYAZ 600';
+  model2.delay = '30 Days';
+  model2.price = '600 DA';
+
+  model2.offre1 = '12 Gb';
+  model2.offre2 = '1500 DA';
+  model2.offre3 = 'Unlimited';
+
+  model2.imgoffre1 = ic_world;
+  model2.imgoffre2 = ic_server;
+  model2.imgoffre3 = ic_offercall;
+
+  DjezzyImtiyaz model3 = DjezzyImtiyaz();
+  model3.imtiyaz = 'IMTIYAZ 400';
+  model3.delay = '15 Days';
+  model3.price = '400 DA';
+
+  model3.offre1 = '2000 DA';
+  model3.offre2 = 'Unlimited';
+  model3.offre3 = 'Unlimited';
+
+  model3.imgoffre1 = ic_server;
+  model3.imgoffre2 = ic_offercall;
+  model3.imgoffre3 = ic_offermsg;
+
+  DjezzyImtiyaz model4 = DjezzyImtiyaz();
+  model4.imtiyaz = 'IMTIYAZ 300';
+  model4.delay = '10 Days';
+  model4.price = '300 DA';
+
+  model4.offre1 = '1200 DA';
+  model4.offre2 = 'Unlimited';
+  model4.offre3 = 'Unlimited';
+
+  model4.imgoffre1 = ic_server;
+  model4.imgoffre2 = ic_offercall;
+  model4.imgoffre3 = ic_offermsg;
+
+  DjezzyImtiyaz model5 = DjezzyImtiyaz();
+  model5.imtiyaz = 'IMTIYAZ 250';
+  model5.delay = '7 Days';
+  model5.price = '250 DA';
+
+  model5.offre1 = '1000 DA';
+  model5.offre2 = 'Unlimited';
+  model5.offre3 = 'Unlimited';
+
+  model5.imgoffre1 = ic_server;
+  model5.imgoffre2 = ic_offercall;
+  model5.imgoffre3 = ic_offermsg;
+
+  list.add(model1);
+  list.add(model2);
+  list.add(model3);
+  list.add(model4);
+  list.add(model5);
+
+  return list;
+}
+
+List<DjezzyRoaming> getRoaming() {
+  List<DjezzyRoaming> list = List<DjezzyRoaming>();
+
+  DjezzyRoaming model1 = DjezzyRoaming();
+  model1.roaming = 'Roaming Internet 1000';
+  model1.delay = '48 Hours';
+  model1.price = '1000 DA';
+
+  model1.offre1 = '3 Gb';
+  model1.offre2 = '';
+  model1.offre3 = '1000 DA';
+
+  model1.imgoffre1 = ic_world;
+  model1.imgoffre2 = ic_world2;
+  model1.imgoffre3 = ic_server;
+
+  DjezzyRoaming model2 = DjezzyRoaming();
+  model2.roaming = 'Roaming Internet 2000';
+  model2.delay = '7 Days';
+  model2.price = '2000 DA';
+
+  model2.offre1 = '12 Gb';
+  model2.offre2 = '1500 DA';
+  model2.offre3 = 'Unlimited';
+
+  model2.imgoffre1 = ic_world;
+  model2.imgoffre2 = ic_server;
+  model2.imgoffre3 = ic_offercall;
+
+  DjezzyRoaming model3 = DjezzyRoaming();
+  model3.roaming = 'Roaming Internet 1000';
+  model3.delay = '48 Hours';
+  model3.price = '1000 DA';
+
+  model3.offre1 = '2000 DA';
+  model3.offre2 = 'Unlimited';
+  model3.offre3 = 'Unlimited';
+
+  model3.imgoffre1 = ic_server;
+  model3.imgoffre2 = ic_offercall;
+  model3.imgoffre3 = ic_offermsg;
+
+  DjezzyRoaming model4 = DjezzyRoaming();
+  model4.roaming = 'Roaming Internet 2000';
+  model4.delay = '7 Days';
+  model4.price = '2000 DA';
+
+  model4.offre1 = '1200 DA';
+  model4.offre2 = 'Unlimited';
+  model4.offre3 = 'Unlimited';
+
+  model4.imgoffre1 = ic_server;
+  model4.imgoffre2 = ic_offercall;
+  model4.imgoffre3 = ic_offermsg;
+
+  DjezzyRoaming model5 = DjezzyRoaming();
+  model5.roaming = 'Roaming Internet 4000';
+  model5.delay = '7 Days';
+  model5.price = '4000 DA';
+
+  model5.offre1 = '1000 DA';
+  model5.offre2 = 'Unlimited';
+  model5.offre3 = 'Unlimited';
+
+  model5.imgoffre1 = ic_server;
+  model5.imgoffre2 = ic_offercall;
+  model5.imgoffre3 = ic_offermsg;
+
+  list.add(model1);
+  list.add(model2);
+  list.add(model3);
+  list.add(model4);
+  list.add(model5);
+
+  return list;
+}

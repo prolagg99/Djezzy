@@ -1,5 +1,6 @@
 import 'package:djezzy/Djezzy/utils/DjezzyImages.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
+import 'package:djezzy/Djezzy/utils/DjezzyConstant.dart';
 import 'package:flutter/material.dart';
 
 // class TopBar extends StatefulWidget {
@@ -60,7 +61,8 @@ class TextSized extends StatelessWidget {
   final String delay;
   final String price;
   final TextStyle textStyle;
-  TextSized({this.delay, this.price, this.textStyle});
+  final int selected;
+  TextSized({this.delay, this.price, this.textStyle, this.selected});
 
   @override
   Widget build(BuildContext context) {
@@ -71,25 +73,34 @@ class TextSized extends StatelessWidget {
     return Column(
       children: <Widget>[
         Text(
-          delay,
-          style: textStyle,
+          selected == 1 ? delay : price,
+          style: selected == 1
+              ? TextStyle(color: colorPrimary_light, fontSize: 12)
+              : TextStyle(
+                  fontSize: textSizeMedium,
+                  fontFamily: fontBold,
+                  color: colorPrimary_dark),
         ),
         Container(
           height: 1,
-          width: txtSizeDelay.width < txtSizePrice.width
-              ? txtSizePrice.width
-              : txtSizeDelay.width,
+          width: selected == 1
+              ? (txtSizeDelay.width < txtSizePrice.width
+                  ? txtSizePrice.width
+                  : txtSizeDelay.width)
+              : txtSizePrice.width,
           color: colorPrimary_light,
         ),
         SizedBox(
           height: 2,
         ),
         Text(
-          price,
-          style: TextStyle(
-            color: colorPrimary_light,
-            fontSize: 12,
-          ),
+          selected == 1 ? price : delay,
+          style: selected == 1
+              ? textStyle
+              : TextStyle(
+                  color: colorAccentGreen,
+                  fontSize: textSizeSmall,
+                ),
         ),
       ],
     );

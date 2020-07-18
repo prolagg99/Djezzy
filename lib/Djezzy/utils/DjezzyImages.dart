@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 const ic_server = "images/server.png";
 const ic_world = "images/world.png";
 const ic_world2 = "images/world2.png";
+
+const ic_offercall = "images/offercall.png";
+const ic_offermsg = "images/offermessage.png";
+
 const logo_djezzy = "images/Logo_Djezzy.png";
 const logo_djezzy2 = "images/Logo_Djezzy2.png";
 const logo_djezzy3 = "images/Logo_Djezzy3.png";
