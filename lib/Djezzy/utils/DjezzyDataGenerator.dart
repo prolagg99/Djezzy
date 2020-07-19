@@ -55,7 +55,7 @@ List<DjezzyInternet> getInternet() {
   DjezzyInternet model8 = DjezzyInternet();
   model8.internet = 'Internet On demand';
   model8.delay = 'Internet';
-  model8.price = '4.99 DA/ Mb';
+  model8.price = '4.99 DA / Mb';
 
   list.add(model1);
   list.add(model2);
@@ -154,63 +154,63 @@ List<DjezzyRoaming> getRoaming() {
   model1.delay = '48 Hours';
   model1.price = '1000 DA';
 
-  model1.offre1 = '3 Gb';
-  model1.offre2 = '';
-  model1.offre3 = '1000 DA';
+  model1.offre1 = '100 Mb';
+  // model1.offre2 = '';
+  // model1.offre3 = '';
 
   model1.imgoffre1 = ic_world;
-  model1.imgoffre2 = ic_world2;
-  model1.imgoffre3 = ic_server;
+  // model1.imgoffre2 = ic_world2;
+  // model1.imgoffre3 = ic_server;
 
   DjezzyRoaming model2 = DjezzyRoaming();
   model2.roaming = 'Roaming Internet 2000';
   model2.delay = '7 Days';
   model2.price = '2000 DA';
 
-  model2.offre1 = '12 Gb';
-  model2.offre2 = '1500 DA';
-  model2.offre3 = 'Unlimited';
+  model2.offre1 = '250 Mb';
+  // model2.offre2 = '';
+  // model2.offre3 = '';
 
   model2.imgoffre1 = ic_world;
-  model2.imgoffre2 = ic_server;
-  model2.imgoffre3 = ic_offercall;
+  // model2.imgoffre2 = ic_server;
+  // model2.imgoffre3 = ic_offercall;
 
   DjezzyRoaming model3 = DjezzyRoaming();
   model3.roaming = 'Roaming Internet 1000';
   model3.delay = '48 Hours';
   model3.price = '1000 DA';
 
-  model3.offre1 = '2000 DA';
-  model3.offre2 = 'Unlimited';
-  model3.offre3 = 'Unlimited';
+  model3.offre1 = '10 Min';
+  // model3.offre2 = '';
+  // model3.offre3 = '';
 
-  model3.imgoffre1 = ic_server;
-  model3.imgoffre2 = ic_offercall;
-  model3.imgoffre3 = ic_offermsg;
+  model3.imgoffre1 = ic_offercall;
+  // model3.imgoffre2 = ic_offercall;
+  // model3.imgoffre3 = ic_offermsg;
 
   DjezzyRoaming model4 = DjezzyRoaming();
   model4.roaming = 'Roaming Internet 2000';
   model4.delay = '7 Days';
   model4.price = '2000 DA';
 
-  model4.offre1 = '1200 DA';
-  model4.offre2 = 'Unlimited';
-  model4.offre3 = 'Unlimited';
+  model4.offre1 = '20 Min';
+  // model4.offre2 = '';
+  // model4.offre3 = '';
 
-  model4.imgoffre1 = ic_server;
-  model4.imgoffre2 = ic_offercall;
-  model4.imgoffre3 = ic_offermsg;
+  model4.imgoffre1 = ic_offercall;
+  // model4.imgoffre2 = ic_offercall;
+  // model4.imgoffre3 = ic_offermsg;
 
   DjezzyRoaming model5 = DjezzyRoaming();
   model5.roaming = 'Roaming Internet 4000';
   model5.delay = '7 Days';
   model5.price = '4000 DA';
 
-  model5.offre1 = '1000 DA';
-  model5.offre2 = 'Unlimited';
-  model5.offre3 = 'Unlimited';
+  model5.offre1 = '500 Mb';
+  model5.offre2 = '20 Min';
+  model5.offre3 = '10 SMS';
 
-  model5.imgoffre1 = ic_server;
+  model5.imgoffre1 = ic_world;
   model5.imgoffre2 = ic_offercall;
   model5.imgoffre3 = ic_offermsg;
 

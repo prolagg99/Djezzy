@@ -23,7 +23,6 @@ class _DjezzyLoadingState extends State<DjezzyLoading> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     changeStatusColor(Colors.black);
     return Scaffold(
       backgroundColor: Colors.white,
