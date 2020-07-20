@@ -33,6 +33,7 @@ dependencies:
   flutter_spinkit: ^4.1.2+1
   intl: ^0.16.1
   flutter_svg:
+  buttons_tabbar: ^0.1.1+1
 
 dev_dependencies:
   flutter_test:

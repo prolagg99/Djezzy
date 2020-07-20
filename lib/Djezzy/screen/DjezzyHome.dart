@@ -1,10 +1,13 @@
 import 'package:djezzy/Djezzy/screen/DjezzyOffersHistory.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
+import 'package:djezzy/Djezzy/utils/DjezzyDataGenerator.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyConstant.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyImages.dart';
 import 'package:djezzy/Djezzy/utils/DjezzySlider.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyWidget.dart';
+import 'package:djezzy/Djezzy/model/DjezzyModels.dart';
+
 import 'package:flutter/material.dart';
 
 class DjezzyHome extends StatefulWidget {
@@ -14,8 +17,18 @@ class DjezzyHome extends StatefulWidget {
 }
 
 class _DjezzyHomeState extends State<DjezzyHome> {
+  static List<DjezzyImtiyaz> mListings;
+  DjezzyImtiyaz imtiyaz;
   final number = "0796123112"
       .replaceAllMapped(RegExp(r".{2}"), (match) => "${match.group(0)} ");
+
+  @override
+  void initState() {
+    super.initState();
+    mListings = getImtiyaz();
+    imtiyaz = mListings[0];
+  }
+
   @override
   Widget build(BuildContext context) {
     changeStatusColor(Colors.black);
@@ -162,7 +175,7 @@ class _DjezzyHomeState extends State<DjezzyHome> {
                     ),
                     InkWell(
                       onTap: () {
-                        // showBottomSheetImtiyaz(context);
+                        showBottomSheetImtiyaz(context, imtiyaz);
                       },
                       child: Container(
                         width: 350,
@@ -176,7 +189,7 @@ class _DjezzyHomeState extends State<DjezzyHome> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
-                                  Text('IMTIYAZ 190',
+                                  Text(imtiyaz.imtiyaz,
                                       style: TextStyle(
                                           fontSize: textSizeMedium,
                                           fontFamily: fontBold,
@@ -185,14 +198,14 @@ class _DjezzyHomeState extends State<DjezzyHome> {
                                     Expanded(
                                         flex: 1,
                                         child: Column(children: <Widget>[
-                                          Image.asset(ic_world,
+                                          Image.asset(imtiyaz.imgoffre1,
                                               height: 22,
                                               width: 22,
                                               color: colorPrimary_light),
                                           SizedBox(height: 7),
                                           Container(
                                               width: 54,
-                                              child: Text('3 Go',
+                                              child: Text(imtiyaz.offre1,
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                       fontSize: textSizeSMedium,
@@ -202,14 +215,14 @@ class _DjezzyHomeState extends State<DjezzyHome> {
                                     Expanded(
                                         flex: 1,
                                         child: Column(children: <Widget>[
-                                          Image.asset(ic_server,
+                                          Image.asset(imtiyaz.imgoffre2,
                                               height: 22,
                                               width: 22,
                                               color: colorPrimary_light),
                                           SizedBox(height: 7),
                                           Container(
                                               width: 60,
-                                              child: Text('1000 DA',
+                                              child: Text(imtiyaz.offre2,
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                       fontSize: textSizeSMedium,
@@ -225,8 +238,8 @@ class _DjezzyHomeState extends State<DjezzyHome> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     TextSized(
-                                        delay: /*model.delay*/ '24 Hours',
-                                        price: /*model.price*/ '190 DA',
+                                        delay: imtiyaz.delay,
+                                        price: imtiyaz.price,
                                         textStyle: TextStyle(
                                             fontSize: textSizeMedium,
                                             fontFamily: fontBold,

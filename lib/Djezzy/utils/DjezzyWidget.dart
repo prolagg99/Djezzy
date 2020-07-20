@@ -75,7 +75,8 @@ Widget addLeadingIcon() {
   );
 }
 
-showBottomSheetInternet(context, DjezzyInternet model, DjezzyInternet lastPos) {
+showBottomSheetInternet(
+    context, DjezzyInternet model, DjezzyInternet lastPos) async {
   var w = MediaQuery.of(context).size.width;
 
   showModalBottomSheet(
@@ -183,8 +184,7 @@ showBottomSheetInternet(context, DjezzyInternet model, DjezzyInternet lastPos) {
   );
 }
 
-showBottomSheetImtiyaz(
-    context, DjezzyImtiyaz model, DjezzyImtiyaz lastPos) async {
+showBottomSheetImtiyaz(context, DjezzyImtiyaz model) async {
   var w = MediaQuery.of(context).size.width;
   showModalBottomSheet(
     backgroundColor: Colors.transparent,
@@ -396,7 +396,8 @@ showBottomSheetImtiyaz(
   );
 }
 
-showBottomSheetRoaming(context, DjezzyRoaming model, DjezzyRoaming lastPos) {
+showBottomSheetRoaming(
+    context, DjezzyRoaming model, DjezzyRoaming lastPos) async {
   var w = MediaQuery.of(context).size.width;
 
   showModalBottomSheet(

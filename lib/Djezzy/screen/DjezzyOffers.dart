@@ -245,7 +245,7 @@ class Imtiyaz extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
         child: InkWell(
           onTap: () {
-            showBottomSheetImtiyaz(context, model, lastPos);
+            showBottomSheetImtiyaz(context, model);
           },
           child: Container(
               width: 350,
