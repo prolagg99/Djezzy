@@ -1,3 +1,4 @@
+import 'package:djezzy/Djezzy/screen/DjezzyOffersHistory.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyConstant.dart';
@@ -161,7 +162,7 @@ class _DjezzyHomeState extends State<DjezzyHome> {
                     ),
                     InkWell(
                       onTap: () {
-                        showBottomSheetImtiyaz(context);
+                        // showBottomSheetImtiyaz(context);
                       },
                       child: Container(
                         width: 350,
@@ -267,11 +268,17 @@ class _DjezzyHomeState extends State<DjezzyHome> {
                                         fontFamily: fontRegular,
                                         fontSize: textSizeMedium)),
                                 SizedBox(width: 164),
-                                Text('See more',
-                                    style: TextStyle(
-                                        color: colorAccent,
-                                        fontFamily: fontMedium,
-                                        fontSize: textSizeSmall))
+                                InkWell(
+                                  onTap: () {
+                                    launchScreen(
+                                        context, DjezzyOffersHistory.tag);
+                                  },
+                                  child: Text('See more',
+                                      style: TextStyle(
+                                          color: colorAccent,
+                                          fontFamily: fontMedium,
+                                          fontSize: textSizeSmall)),
+                                )
                               ],
                             ),
                             Row(children: <Widget>[

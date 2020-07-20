@@ -17,3 +17,7 @@ launchScreen(context, String tag, {Object arguments}) {
     Navigator.pushNamed(context, tag, arguments: arguments);
   }
 }
+
+back(var context) {
+  Navigator.pop(context);
+}

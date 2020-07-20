@@ -73,23 +73,27 @@ List<DjezzyImtiyaz> getImtiyaz() {
   List<DjezzyImtiyaz> list = List<DjezzyImtiyaz>();
 
   DjezzyImtiyaz model1 = DjezzyImtiyaz();
+  model1.details = "1000 DA TOUS + 3Go";
   model1.imtiyaz = 'IMTIYAZ 190';
   model1.delay = '24 Hours';
   model1.price = '190 DA';
 
+  model1.numberOffers = "2";
   model1.offre1 = '3 Gb';
-  model1.offre2 = '';
-  model1.offre3 = '1000 DA';
+  model1.offre2 = '1000 DA';
+  model1.offre3 = '';
 
   model1.imgoffre1 = ic_world;
-  model1.imgoffre2 = ic_world2;
+  model1.imgoffre2 = ic_server;
   model1.imgoffre3 = ic_server;
 
   DjezzyImtiyaz model2 = DjezzyImtiyaz();
+  model2.details = "Unlimited Djezzy + 1000DA Others + 12Go";
   model2.imtiyaz = 'IMTIYAZ 600';
   model2.delay = '30 Days';
   model2.price = '600 DA';
 
+  model2.numberOffers = "4";
   model2.offre1 = '12 Gb';
   model2.offre2 = '1500 DA';
   model2.offre3 = 'Unlimited';
@@ -99,10 +103,12 @@ List<DjezzyImtiyaz> getImtiyaz() {
   model2.imgoffre3 = ic_offercall;
 
   DjezzyImtiyaz model3 = DjezzyImtiyaz();
+  model3.details = "Unlimited Djezzy + 2000 DA Others";
   model3.imtiyaz = 'IMTIYAZ 400';
   model3.delay = '15 Days';
   model3.price = '400 DA';
 
+  model3.numberOffers = "3";
   model3.offre1 = '2000 DA';
   model3.offre2 = 'Unlimited';
   model3.offre3 = 'Unlimited';
@@ -112,10 +118,12 @@ List<DjezzyImtiyaz> getImtiyaz() {
   model3.imgoffre3 = ic_offermsg;
 
   DjezzyImtiyaz model4 = DjezzyImtiyaz();
+  model4.details = "Unlimited Djezzy + 1200 DA Others";
   model4.imtiyaz = 'IMTIYAZ 300';
   model4.delay = '10 Days';
   model4.price = '300 DA';
 
+  model4.numberOffers = "3";
   model4.offre1 = '1200 DA';
   model4.offre2 = 'Unlimited';
   model4.offre3 = 'Unlimited';
@@ -125,10 +133,12 @@ List<DjezzyImtiyaz> getImtiyaz() {
   model4.imgoffre3 = ic_offermsg;
 
   DjezzyImtiyaz model5 = DjezzyImtiyaz();
+  model5.details = "Unlimited Djezzy + 1000 DA Others";
   model5.imtiyaz = 'IMTIYAZ 250';
   model5.delay = '7 Days';
   model5.price = '250 DA';
 
+  model5.numberOffers = "3";
   model5.offre1 = '1000 DA';
   model5.offre2 = 'Unlimited';
   model5.offre3 = 'Unlimited';
@@ -154,6 +164,7 @@ List<DjezzyRoaming> getRoaming() {
   model1.delay = '48 Hours';
   model1.price = '1000 DA';
 
+  model1.type = 'Internet';
   model1.offre1 = '100 Mb';
   // model1.offre2 = '';
   // model1.offre3 = '';
@@ -167,6 +178,7 @@ List<DjezzyRoaming> getRoaming() {
   model2.delay = '7 Days';
   model2.price = '2000 DA';
 
+  model2.type = 'Internet';
   model2.offre1 = '250 Mb';
   // model2.offre2 = '';
   // model2.offre3 = '';
@@ -176,10 +188,11 @@ List<DjezzyRoaming> getRoaming() {
   // model2.imgoffre3 = ic_offercall;
 
   DjezzyRoaming model3 = DjezzyRoaming();
-  model3.roaming = 'Roaming Internet 1000';
+  model3.roaming = 'Roaming Appels 1000';
   model3.delay = '48 Hours';
   model3.price = '1000 DA';
 
+  model3.type = 'Calls';
   model3.offre1 = '10 Min';
   // model3.offre2 = '';
   // model3.offre3 = '';
@@ -189,10 +202,11 @@ List<DjezzyRoaming> getRoaming() {
   // model3.imgoffre3 = ic_offermsg;
 
   DjezzyRoaming model4 = DjezzyRoaming();
-  model4.roaming = 'Roaming Internet 2000';
+  model4.roaming = 'Roaming Appels 2000';
   model4.delay = '7 Days';
   model4.price = '2000 DA';
 
+  model4.type = 'Calls';
   model4.offre1 = '20 Min';
   // model4.offre2 = '';
   // model4.offre3 = '';
@@ -202,7 +216,7 @@ List<DjezzyRoaming> getRoaming() {
   // model4.imgoffre3 = ic_offermsg;
 
   DjezzyRoaming model5 = DjezzyRoaming();
-  model5.roaming = 'Roaming Internet 4000';
+  model5.roaming = 'Roaming Mixte 4000';
   model5.delay = '7 Days';
   model5.price = '4000 DA';
 

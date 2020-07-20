@@ -3,6 +3,7 @@ import 'package:djezzy/Djezzy/screen/DjezzyFlexy.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyHome.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyLoading.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyOffers.dart';
+import 'package:djezzy/Djezzy/screen/DjezzyOffersHistory.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyProfile.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyQuiz.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class Djezzy extends StatelessWidget {
         DjezzyQuiz.tag: (context) => DjezzyQuiz(),
         DjezzyProfile.tag: (context) => DjezzyProfile(),
         DjezzyFlexy.tag: (context) => DjezzyFlexy(),
+        DjezzyOffersHistory.tag: (context) => DjezzyOffersHistory(),
       },
     );
   }

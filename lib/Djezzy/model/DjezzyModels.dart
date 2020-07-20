@@ -9,9 +9,11 @@ class DjezzyInternet {
 }
 
 class DjezzyImtiyaz {
+  var details = "";
   var imtiyaz = "";
   var delay = "";
   var price = "";
+  var numberOffers = "";
   var offre1 = "";
   var offre2 = "";
   var offre3 = "";
@@ -24,6 +26,7 @@ class DjezzyRoaming {
   var roaming = "";
   var delay = "";
   var price = "";
+  var type = "";
   var offre1 = "";
   var offre2 = "";
   var offre3 = "";

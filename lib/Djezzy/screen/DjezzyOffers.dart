@@ -29,65 +29,15 @@ class _DjezzyOffersState extends State<DjezzyOffers> {
 
   @override
   Widget build(BuildContext context) {
-    double c_width = MediaQuery.of(context).size.width / 5;
     final double itemHeight = 80;
     final double itemWidth = 82;
 
+    /* card of internet *********************************************** */
     final internetAll = GridView.builder(
       physics: new NeverScrollableScrollPhysics(),
       itemCount: mListings.length,
-      // primary: true,
-      // shrinkWrap: true,
       itemBuilder: (context, index) {
-        return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 5),
-            child: InkWell(
-              onTap: () {
-                showBottomSheetInternet(
-                    context, mListings[index], mListings.last);
-              },
-              child: Container(
-                decoration: boxDecoration(),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      topContainerOfCard(mListings[index], mListings.last),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 8),
-                                child: Container(
-                                    width: c_width,
-                                    child: Text(mListings[index].internet,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: mListings[index] ==
-                                                    mListings.last
-                                                ? colorPrimary_light
-                                                : colorAccent,
-                                            fontSize: mListings[index] ==
-                                                    mListings.last
-                                                ? 14
-                                                : 18))))
-                          ]),
-                      mListings[index] == mListings.last
-                          ? SizedBox(height: 4)
-                          : SizedBox(height: 8),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            TextSized(
-                                delay: mListings[index].delay,
-                                price: mListings[index].price,
-                                textStyle: TextStyle(
-                                    color: colorPrimary_light, fontSize: 12),
-                                selected: selectedPos)
-                          ]),
-                    ]),
-              ),
-            ));
+        return Internet(mListings[index], mListings.last, selectedPos);
       },
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
@@ -95,24 +45,24 @@ class _DjezzyOffersState extends State<DjezzyOffers> {
           mainAxisSpacing: 4,
           crossAxisSpacing: 0),
     );
-/*   cards for imtiyaz ************************************************* */
+    /* card of imtiyaz ************************************************* */
     final imtiyazAll = Container(
         child: ListView.builder(
             scrollDirection: Axis.vertical,
             itemCount: mListings2.length,
             shrinkWrap: true,
             itemBuilder: (context, index) {
-              return Imtiyaz(mListings2[index], index, selectedPos);
+              return Imtiyaz(
+                  mListings2[index], index, mListings2.last, selectedPos);
             }));
-/*  cards for imtiyaz ************************************************* */
+    /* cards of imtiyaz ************************************************* */
     final roamingAll = Container(
         child: ListView.builder(
             scrollDirection: Axis.vertical,
             itemCount: mListings2.length,
             shrinkWrap: true,
             itemBuilder: (context, index) {
-              return Roaming(
-                  mListings3[index], mListings3.last, index, selectedPos);
+              return Roaming(mListings3[index], mListings3.last, selectedPos);
             }));
 
     changeStatusColor(Colors.black);
@@ -220,13 +170,73 @@ class _DjezzyOffersState extends State<DjezzyOffers> {
   }
 }
 
+class Internet extends StatelessWidget {
+  DjezzyInternet model;
+  DjezzyInternet lastPos;
+  int selectedPos;
+
+  Internet(DjezzyInternet model, DjezzyInternet lastPos, int selectedPos) {
+    this.model = model;
+    this.lastPos = lastPos;
+    this.selectedPos = selectedPos;
+  }
+  @override
+  Widget build(BuildContext context) {
+    double c_width = MediaQuery.of(context).size.width / 5;
+    return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 5),
+        child: InkWell(
+          onTap: () {
+            showBottomSheetInternet(context, model, lastPos);
+          },
+          child: Container(
+            decoration: boxDecoration(),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  topContainerOfCard(model, lastPos),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            child: Container(
+                                width: c_width,
+                                child: Text(model.internet,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: model == lastPos
+                                            ? colorPrimary_light
+                                            : Colors.red[600],
+                                        fontSize: model == lastPos ? 14 : 18))))
+                      ]),
+                  model == lastPos ? SizedBox(height: 4) : SizedBox(height: 8),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        TextSized(
+                            delay: model.delay,
+                            price: model.price,
+                            textStyle: TextStyle(
+                                color: colorPrimary_light, fontSize: 12),
+                            selected: selectedPos)
+                      ]),
+                ]),
+          ),
+        ));
+  }
+}
+
 class Imtiyaz extends StatelessWidget {
   DjezzyImtiyaz model;
+  DjezzyImtiyaz lastPos;
   int pos;
   int selectedPos;
-  Imtiyaz(DjezzyImtiyaz model, int pos, int selectedPos) {
+  Imtiyaz(
+      DjezzyImtiyaz model, int pos, DjezzyImtiyaz lastPos, int selectedPos) {
     this.model = model;
     this.pos = pos;
+    this.lastPos = lastPos;
     this.selectedPos = selectedPos;
   }
   @override
@@ -235,7 +245,7 @@ class Imtiyaz extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
         child: InkWell(
           onTap: () {
-            // showBottomSheetRoaming(context, model, pos);
+            showBottomSheetImtiyaz(context, model, lastPos);
           },
           child: Container(
               width: 350,
@@ -271,15 +281,15 @@ class Imtiyaz extends StatelessWidget {
                                               color: colorPrimary_dark)))
                                 ])),
                             Expanded(
-                              flex: pos == 0 ? 0 : 1,
+                              flex: 1,
                               child: Column(children: <Widget>[
                                 Image.asset(model.imgoffre2,
-                                    height: pos == 0 ? 0 : 22,
-                                    width: pos == 0 ? 0 : 22,
+                                    height: 22,
+                                    width: 22,
                                     color: colorPrimary_light),
                                 SizedBox(height: 7),
                                 Container(
-                                    width: pos == 0 ? 0 : 60,
+                                    width: 60,
                                     child: Text(model.offre2,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
@@ -288,15 +298,15 @@ class Imtiyaz extends StatelessWidget {
                               ]),
                             ),
                             Expanded(
-                                flex: 1,
+                                flex: pos == 0 ? 0 : 1,
                                 child: Column(children: <Widget>[
                                   Image.asset(model.imgoffre3,
-                                      height: 22,
-                                      width: 22,
+                                      height: pos == 0 ? 0 : 22,
+                                      width: pos == 0 ? 0 : 22,
                                       color: colorPrimary_light),
                                   SizedBox(height: 7),
                                   Container(
-                                      width: 60,
+                                      width: pos == 0 ? 0 : 60,
                                       child: Text(model.offre3,
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
@@ -327,13 +337,11 @@ class Imtiyaz extends StatelessWidget {
 class Roaming extends StatelessWidget {
   DjezzyRoaming model;
   DjezzyRoaming lastPos;
-  int pos;
-
   int selectedPos;
-  Roaming(DjezzyRoaming model, DjezzyRoaming pos1, int pos, int selectedPos) {
+
+  Roaming(DjezzyRoaming model, DjezzyRoaming lastPos, int selectedPos) {
     this.model = model;
     this.lastPos = lastPos;
-    this.pos = pos;
     this.selectedPos = selectedPos;
   }
 
@@ -343,7 +351,7 @@ class Roaming extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
         child: InkWell(
           onTap: () {
-            showBottomSheetRoaming(context, model, lastPos, pos);
+            showBottomSheetRoaming(context, model, lastPos);
           },
           child: Container(
             width: 350,
@@ -380,7 +388,7 @@ class Roaming extends StatelessWidget {
                                         color: colorPrimary_dark),
                                   ))
                             ])),
-                        pos == 4
+                        model == lastPos
                             ? Expanded(
                                 flex: 1,
                                 child: Column(children: <Widget>[
@@ -398,7 +406,7 @@ class Roaming extends StatelessWidget {
                                               color: colorPrimary_dark)))
                                 ]))
                             : Container(width: 0, height: 0),
-                        pos == 4
+                        model == lastPos
                             ? Expanded(
                                 flex: 1,
                                 child: Column(children: <Widget>[

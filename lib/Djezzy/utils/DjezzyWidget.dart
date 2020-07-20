@@ -75,125 +75,7 @@ Widget addLeadingIcon() {
   );
 }
 
-showBottomSheetImtiyaz(context) async {
-  var w = MediaQuery.of(context).size.width;
-  showModalBottomSheet(
-    backgroundColor: Colors.transparent,
-    context: context,
-    isScrollControlled: true,
-    builder: (context) {
-      return Container(
-          width: w,
-          height: w * 0.7,
-          decoration: BoxDecoration(
-            color: colorPrimary,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(18.0),
-              topRight: const Radius.circular(18.0),
-            ),
-          ),
-          child: Row(
-            children: <Widget>[
-              Container(
-                  height: double.infinity,
-                  width: 15,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(0),
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0)),
-                      gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          colors: [colorAccent, colorAccent2]))),
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(32, 2, 48, 0),
-                  child: Container(
-                      width: 265,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Text('1000 DA TOUS + 3Go',
-                              style: TextStyle(
-                                  color: colorPrimary_dark,
-                                  // fontFamily: fontMedium,
-                                  fontSize: 18)),
-                          Column(
-                            children: <Widget>[
-                              Text('3 Gb',
-                                  style: TextStyle(
-                                      color: colorAccent,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 22)),
-                              SizedBox(height: 5),
-                              Text('Internet',
-                                  style: TextStyle(
-                                      color: colorAccent, fontSize: 18)),
-                              Container(
-                                  height: 1.5,
-                                  width: 30,
-                                  color: colorPrimary_light),
-                            ],
-                          ),
-                          Column(
-                            children: <Widget>[
-                              Text('1000 DA',
-                                  style: TextStyle(
-                                      color: colorPrimary_light,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18)),
-                              Text('Credit',
-                                  style: TextStyle(
-                                      color: colorPrimary_light, fontSize: 16)),
-                              Container(
-                                  height: 1.5,
-                                  width: 30,
-                                  color: colorPrimary_light)
-                            ],
-                          ),
-                          // SizedBox(height: 4),
-                          Column(
-                            children: <Widget>[
-                              Text('For 190 DA / 24 Hours',
-                                  style: TextStyle(
-                                      color: colorPrimary_light, fontSize: 16)),
-                              SizedBox(
-                                height: 7,
-                              ),
-                              Container(
-                                  height: 1,
-                                  width: 320,
-                                  color: colorPrimary_light),
-                            ],
-                          ),
-                          Padding(
-                              padding: const EdgeInsets.fromLTRB(10, 6, 10, 6),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Text('CANCEL',
-                                      style: TextStyle(
-                                          color: colorPrimary_light,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15)),
-                                  Text('ACTIVATE',
-                                      style: TextStyle(
-                                          color: colorAccentGreen,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15))
-                                ],
-                              ))
-                        ],
-                      )))
-            ],
-          ));
-    },
-  );
-}
-
-showBottomSheetInternet(context, DjezzyInternet model, DjezzyInternet pos) {
+showBottomSheetInternet(context, DjezzyInternet model, DjezzyInternet lastPos) {
   var w = MediaQuery.of(context).size.width;
 
   showModalBottomSheet(
@@ -234,7 +116,7 @@ showBottomSheetInternet(context, DjezzyInternet model, DjezzyInternet pos) {
                         children: <Widget>[
                           Expanded(
                             flex: 1,
-                            child: model == pos
+                            child: model == lastPos
                                 ? Text(model.internet,
                                     style: TextStyle(
                                         color: Colors.black87, fontSize: 18))
@@ -252,7 +134,7 @@ showBottomSheetInternet(context, DjezzyInternet model, DjezzyInternet pos) {
                             child: Column(
                               children: <Widget>[
                                 Text(
-                                    model == pos
+                                    model == lastPos
                                         ? 'For ' +
                                             model.price.substring(
                                                 0, model.price.length - 4)
@@ -301,10 +183,9 @@ showBottomSheetInternet(context, DjezzyInternet model, DjezzyInternet pos) {
   );
 }
 
-showBottomSheetRoaming(
-    context, DjezzyRoaming model, DjezzyRoaming lastPos, int pos) {
+showBottomSheetImtiyaz(
+    context, DjezzyImtiyaz model, DjezzyImtiyaz lastPos) async {
   var w = MediaQuery.of(context).size.width;
-
   showModalBottomSheet(
     backgroundColor: Colors.transparent,
     context: context,
@@ -312,7 +193,9 @@ showBottomSheetRoaming(
     builder: (context) {
       return Container(
           width: w,
-          height: w * 0.54,
+          height: model.numberOffers == '2'
+              ? w * 0.7
+              : model.numberOffers == '3' ? w * 0.86 : w * 1.02,
           decoration: BoxDecoration(
             color: colorPrimary,
             borderRadius: BorderRadius.only(
@@ -336,46 +219,116 @@ showBottomSheetRoaming(
                           end: Alignment.bottomLeft,
                           colors: [colorAccent, colorAccent2]))),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(32, 11, 48, 11),
+                  padding: const EdgeInsets.fromLTRB(32, 12, 48, 12),
                   child: Container(
                       width: 265,
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           Expanded(
                             flex: 1,
-                            child: Text(model.roaming,
+                            child: Text(model.details,
                                 style: TextStyle(
                                     color: Colors.black87, fontSize: 18)),
                           ),
-                          Expanded(flex: 1, child: Text('100 Mb')),
+                          SizedBox(height: 4),
                           Column(
                             children: <Widget>[
-                              Text('Internet',
+                              Text(model.offre1,
                                   style: TextStyle(
-                                      color: colorAccent, fontSize: 18)),
+                                      color: Colors.red[600],
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(height: 2),
+                              Text(
+                                  model.offre1.contains('Gb')
+                                      ? 'Internet'
+                                      : 'Credit',
+                                  style: TextStyle(
+                                      color: Colors.red[600], fontSize: 18)),
                               Container(
                                   height: 1.5,
                                   width: 30,
                                   color: colorPrimary_light),
                             ],
                           ),
+                          SizedBox(height: 10),
+                          // for offer 2
+                          Column(
+                            children: <Widget>[
+                              Text(model.offre2,
+                                  style: TextStyle(
+                                      color: colorPrimary_light,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(height: 2),
+                              Text(
+                                  model.offre2.contains('DA')
+                                      ? 'Credit'
+                                      : 'Unlimited calls to Djezzy',
+                                  style: TextStyle(
+                                      color: colorPrimary_light, fontSize: 16)),
+                              Container(
+                                  height: 1.5,
+                                  width: 30,
+                                  color: colorPrimary_light),
+                            ],
+                          ),
+                          SizedBox(height: 12),
+                          // for offer num 3
+                          model.numberOffers == '3'
+                              ? Column(
+                                  children: <Widget>[
+                                    Text(model.offre3,
+                                        style: TextStyle(
+                                            color: colorPrimary_light,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold)),
+                                    SizedBox(height: 2),
+                                    Text('SMS Unlimited to Djezzy',
+                                        style: TextStyle(
+                                            color: colorPrimary_light,
+                                            fontSize: 16)),
+                                    Container(
+                                        height: 1.5,
+                                        width: 30,
+                                        color: colorPrimary_light),
+                                    SizedBox(height: 12),
+                                  ],
+                                )
+                              : SizedBox(height: 0, width: 0),
+                          // for offer num 4
+                          model.numberOffers == '4'
+                              ? Column(
+                                  children: <Widget>[
+                                    Text(model.offre3,
+                                        style: TextStyle(
+                                            color: colorPrimary_light,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold)),
+                                    SizedBox(height: 2),
+                                    Text('SMS',
+                                        style: TextStyle(
+                                            color: colorPrimary_light,
+                                            fontSize: 16)),
+                                    Container(
+                                        height: 1.5,
+                                        width: 30,
+                                        color: colorPrimary_light),
+                                    SizedBox(height: 12),
+                                  ],
+                                )
+                              : SizedBox(height: 0, width: 0),
+
                           Expanded(
                             flex: 1,
                             child: Column(
                               children: <Widget>[
-                                Text(
-                                    model == lastPos
-                                        ? 'For ' +
-                                            model.price.substring(
-                                                0, model.price.length - 4)
-                                        : 'For ' +
-                                            model.price +
-                                            ' / ' +
-                                            model.delay,
+                                Text('For ' + model.price + ' / ' + model.delay,
                                     style: TextStyle(
                                         color: colorPrimary_light,
                                         fontSize: 16)),
-                                SizedBox(height: 4),
+                                SizedBox(height: 6),
                                 Container(
                                     height: 1,
                                     width: 320,
@@ -387,7 +340,164 @@ showBottomSheetRoaming(
                             flex: 1,
                             child: Padding(
                                 padding:
-                                    const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                    const EdgeInsets.fromLTRB(10, 6, 10, 6),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text('CANCEL',
+                                        style: TextStyle(
+                                            color: colorPrimary_light,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15)),
+                                    Text('ACTIVATE',
+                                        style: TextStyle(
+                                            color: colorAccentGreen,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15))
+                                  ],
+                                )),
+                          )
+                        ],
+                      )))
+            ],
+          ));
+    },
+  );
+}
+
+showBottomSheetRoaming(context, DjezzyRoaming model, DjezzyRoaming lastPos) {
+  var w = MediaQuery.of(context).size.width;
+
+  showModalBottomSheet(
+    backgroundColor: Colors.transparent,
+    context: context,
+    isScrollControlled: true,
+    builder: (context) {
+      return Container(
+          width: w,
+          height: model == lastPos ? w * 0.86 : w * 0.54,
+          decoration: BoxDecoration(
+            color: colorPrimary,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(18.0),
+              topRight: const Radius.circular(18.0),
+            ),
+          ),
+          child: Row(
+            children: <Widget>[
+              Container(
+                  height: double.infinity,
+                  width: 15,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0)),
+                      gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [colorAccent, colorAccent2]))),
+              Padding(
+                  padding: const EdgeInsets.fromLTRB(32, 12, 48, 12),
+                  child: Container(
+                      width: 265,
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 1,
+                            child: Text(model.roaming,
+                                style: TextStyle(
+                                    color: Colors.black87, fontSize: 18)),
+                          ),
+                          SizedBox(height: 0),
+                          // for offer num 1
+                          Column(
+                            children: <Widget>[
+                              Text(model.offre1,
+                                  style: TextStyle(
+                                      color: Colors.red[600],
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(height: 4),
+                              Text(model == lastPos ? 'Internet' : model.type,
+                                  style: TextStyle(
+                                      color: Colors.red[600], fontSize: 18)),
+                              Container(
+                                  height: 1.5,
+                                  width: 30,
+                                  color: colorPrimary_light),
+                            ],
+                          ),
+                          SizedBox(height: 12),
+                          // for offer num 2
+                          model == lastPos
+                              ? Column(
+                                  children: <Widget>[
+                                    Text(model.offre2,
+                                        style: TextStyle(
+                                            color: colorPrimary_light,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold)),
+                                    SizedBox(height: 2),
+                                    Text('Calls',
+                                        style: TextStyle(
+                                            color: colorPrimary_light,
+                                            fontSize: 16)),
+                                    Container(
+                                        height: 1.5,
+                                        width: 30,
+                                        color: colorPrimary_light),
+                                    SizedBox(height: 12),
+                                  ],
+                                )
+                              : SizedBox(height: 0, width: 0),
+
+                          // for offer num 3
+                          model == lastPos
+                              ? Column(
+                                  children: <Widget>[
+                                    Text(model.offre3,
+                                        style: TextStyle(
+                                            color: colorPrimary_light,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold)),
+                                    SizedBox(height: 2),
+                                    Text('SMS',
+                                        style: TextStyle(
+                                            color: colorPrimary_light,
+                                            fontSize: 16)),
+                                    Container(
+                                        height: 1.5,
+                                        width: 30,
+                                        color: colorPrimary_light),
+                                    SizedBox(height: 12),
+                                  ],
+                                )
+                              : SizedBox(height: 0, width: 0),
+
+                          Expanded(
+                            flex: 1,
+                            child: Column(
+                              children: <Widget>[
+                                Text('For ' + model.price + ' / ' + model.delay,
+                                    style: TextStyle(
+                                        color: colorPrimary_light,
+                                        fontSize: 16)),
+                                SizedBox(height: 6),
+                                Container(
+                                    height: 1,
+                                    width: 320,
+                                    color: colorPrimary_light),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10, 6, 10, 6),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
