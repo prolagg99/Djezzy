@@ -219,9 +219,11 @@ showBottomSheetImtiyaz(
                           end: Alignment.bottomLeft,
                           colors: [colorAccent, colorAccent2]))),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(32, 12, 48, 12),
+                  padding: const EdgeInsets.fromLTRB(0, 12, 0, 12),
                   child: Container(
-                      width: 265,
+                      width: 345,
+                      // width: double.infinity,
+                      // color: Colors.red,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
@@ -231,116 +233,144 @@ showBottomSheetImtiyaz(
                                 style: TextStyle(
                                     color: Colors.black87, fontSize: 18)),
                           ),
-                          SizedBox(height: 4),
-                          Column(
-                            children: <Widget>[
-                              Text(model.offre1,
-                                  style: TextStyle(
-                                      color: Colors.red[600],
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(height: 2),
-                              Text(
-                                  model.offre1.contains('Gb')
-                                      ? 'Internet'
-                                      : 'Credit',
-                                  style: TextStyle(
-                                      color: Colors.red[600], fontSize: 18)),
-                              Container(
-                                  height: 1.5,
-                                  width: 30,
-                                  color: colorPrimary_light),
-                            ],
+
+                          // SizedBox(height: 0),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(34, 0, 48, 0),
+                            child: Column(
+                              children: <Widget>[
+                                Text(model.offre1,
+                                    style: TextStyle(
+                                        color: Colors.red[600],
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(height: 2),
+                                Text(
+                                    model.offre1.contains('Gb')
+                                        ? 'Internet'
+                                        : 'Credit',
+                                    style: TextStyle(
+                                        color: Colors.red[600], fontSize: 18)),
+                                Container(
+                                    height: 1.5,
+                                    width: 30,
+                                    color: colorPrimary_light),
+                                SizedBox(height: 14),
+                              ],
+                            ),
                           ),
-                          SizedBox(height: 10),
+
                           // for offer 2
-                          Column(
-                            children: <Widget>[
-                              Text(model.offre2,
-                                  style: TextStyle(
-                                      color: colorPrimary_light,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(height: 2),
-                              Text(
-                                  model.offre2.contains('DA')
-                                      ? 'Credit'
-                                      : 'Unlimited calls to Djezzy',
-                                  style: TextStyle(
-                                      color: colorPrimary_light, fontSize: 16)),
-                              Container(
-                                  height: 1.5,
-                                  width: 30,
-                                  color: colorPrimary_light),
-                            ],
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(34, 0, 48, 0),
+                            child: Column(
+                              children: <Widget>[
+                                Text(model.offre2,
+                                    style: TextStyle(
+                                        color: colorPrimary_light,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(height: 2),
+                                Text(
+                                    model.offre2.contains('DA')
+                                        ? 'Credit'
+                                        : 'Unlimited calls to Djezzy',
+                                    style: TextStyle(
+                                        color: colorPrimary_light,
+                                        fontSize: 16)),
+                                Container(
+                                    height: 1.5,
+                                    width: 30,
+                                    color: colorPrimary_light),
+                                SizedBox(height: 12),
+                              ],
+                            ),
                           ),
-                          SizedBox(height: 12),
+
                           // for offer num 3
-                          model.numberOffers == '3'
-                              ? Column(
-                                  children: <Widget>[
-                                    Text(model.offre3,
-                                        style: TextStyle(
-                                            color: colorPrimary_light,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold)),
-                                    SizedBox(height: 2),
-                                    Text('SMS Unlimited to Djezzy',
-                                        style: TextStyle(
-                                            color: colorPrimary_light,
-                                            fontSize: 16)),
-                                    Container(
-                                        height: 1.5,
-                                        width: 30,
-                                        color: colorPrimary_light),
-                                    SizedBox(height: 12),
-                                  ],
+                          model.numberOffers == '3' || model.numberOffers == '4'
+                              ? Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(34, 0, 48, 0),
+                                  child: Column(
+                                    children: <Widget>[
+                                      Text(model.offre3,
+                                          style: TextStyle(
+                                              color: colorPrimary_light,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold)),
+                                      SizedBox(height: 2),
+                                      Text(
+                                          model.numberOffers == '3'
+                                              ? 'SMS Unlimited to Djezzy'
+                                              : 'Unlimited calls to Djezzy',
+                                          style: TextStyle(
+                                              color: colorPrimary_light,
+                                              fontSize: 16)),
+                                      Container(
+                                          height: 1.5,
+                                          width: 30,
+                                          color: colorPrimary_light),
+                                      SizedBox(height: 12),
+                                    ],
+                                  ),
                                 )
                               : SizedBox(height: 0, width: 0),
                           // for offer num 4
                           model.numberOffers == '4'
-                              ? Column(
-                                  children: <Widget>[
-                                    Text(model.offre3,
-                                        style: TextStyle(
-                                            color: colorPrimary_light,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold)),
-                                    SizedBox(height: 2),
-                                    Text('SMS',
-                                        style: TextStyle(
-                                            color: colorPrimary_light,
-                                            fontSize: 16)),
-                                    Container(
-                                        height: 1.5,
-                                        width: 30,
-                                        color: colorPrimary_light),
-                                    SizedBox(height: 12),
-                                  ],
+                              ? Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(34, 0, 48, 0),
+                                  child: Column(
+                                    children: <Widget>[
+                                      Text(model.offre3,
+                                          style: TextStyle(
+                                              color: colorPrimary_light,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold)),
+                                      SizedBox(height: 2),
+                                      Text('SMS Unlimited to Djezzy',
+                                          style: TextStyle(
+                                              color: colorPrimary_light,
+                                              fontSize: 16)),
+                                      Container(
+                                          height: 1.5,
+                                          width: 30,
+                                          color: colorPrimary_light),
+                                      SizedBox(height: 12),
+                                    ],
+                                  ),
                                 )
                               : SizedBox(height: 0, width: 0),
 
                           Expanded(
                             flex: 1,
-                            child: Column(
-                              children: <Widget>[
-                                Text('For ' + model.price + ' / ' + model.delay,
-                                    style: TextStyle(
-                                        color: colorPrimary_light,
-                                        fontSize: 16)),
-                                SizedBox(height: 6),
-                                Container(
-                                    height: 1,
-                                    width: 320,
-                                    color: colorPrimary_light),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(34, 0, 48, 0),
+                              child: Column(
+                                children: <Widget>[
+                                  Text(
+                                      'For ' +
+                                          model.price +
+                                          ' / ' +
+                                          model.delay,
+                                      style: TextStyle(
+                                          color: colorPrimary_light,
+                                          fontSize: 16)),
+                                  SizedBox(height: 6),
+                                  Container(
+                                      height: 1,
+                                      width: 320,
+                                      color: colorPrimary_light),
+                                ],
+                              ),
                             ),
                           ),
                           Expanded(
                             flex: 1,
                             child: Padding(
                                 padding:
-                                    const EdgeInsets.fromLTRB(10, 6, 10, 6),
+                                    const EdgeInsets.fromLTRB(46, 6, 58, 6),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
