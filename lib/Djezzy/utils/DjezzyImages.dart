@@ -15,6 +15,14 @@ const logo_djezzy4 = "images/Logo_Djezzy4.png";
 
 const img_event1 = "images/event1.png";
 const img_event2 = "images/event2.png";
+const img_quiz1 = "images/Quiz1.png";
+const img_ramadan1 = "images/Quiz1.png";
+
+const ic_fajr = "images/sunshine.png";
+const ic_dhohr = "images/sun.png";
+const ic_asr = "images/suncloud.png";
+const ic_magreb = "images/sunset.png";
+const ic_icha = "images/moon.png";
 
 const ic_home = Icon(Icons.home, color: colorPrimary_light);
 const ic_home2 = Icon(Icons.home, color: colorAccent);

@@ -97,6 +97,7 @@ class _DjezzyOffersState extends State<DjezzyOffers> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(
+                                width: 0.5,
                                 color: selectedPos == 1
                                     ? colorAccent
                                     : colorPrimary_light))),
@@ -124,6 +125,7 @@ class _DjezzyOffersState extends State<DjezzyOffers> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(
+                                width: 0.5,
                                 color: selectedPos == 2
                                     ? colorAccent
                                     : colorPrimary_light))),
@@ -151,6 +153,7 @@ class _DjezzyOffersState extends State<DjezzyOffers> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                               side: BorderSide(
+                                  width: 0.5,
                                   color: selectedPos == 3
                                       ? colorAccent
                                       : colorPrimary_light)))),

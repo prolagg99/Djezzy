@@ -2,6 +2,9 @@ import 'package:djezzy/Djezzy/model/DjezzyModels.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyImages.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyConstant.dart';
+import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
+import 'package:djezzy/Djezzy/utils/codePicker/wilaya_name.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 // class TopBar extends StatefulWidget {
@@ -75,6 +78,18 @@ Widget addLeadingIcon() {
   );
 }
 
+DotsIndicator dotsIndicator(number, index) {
+  return DotsIndicator(
+      dotsCount: number,
+      position: index,
+      decorator: DotsDecorator(
+        size: const Size.square(8.0),
+        activeSize: const Size.square(8.0),
+        color: colorPrimary_light,
+        activeColor: colorAccent,
+      ));
+}
+
 showBottomSheetInternet(
     context, DjezzyInternet model, DjezzyInternet lastPos) async {
   var w = MediaQuery.of(context).size.width;
@@ -96,19 +111,7 @@ showBottomSheetInternet(
           ),
           child: Row(
             children: <Widget>[
-              Container(
-                  height: double.infinity,
-                  width: 15,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(0),
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0)),
-                      gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          colors: [colorAccent, colorAccent2]))),
+              leftContainerShowBottomSheet(),
               Padding(
                   padding: const EdgeInsets.fromLTRB(32, 11, 48, 11),
                   child: Container(
@@ -205,19 +208,7 @@ showBottomSheetImtiyaz(context, DjezzyImtiyaz model) async {
           ),
           child: Row(
             children: <Widget>[
-              Container(
-                  height: double.infinity,
-                  width: 15,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(0),
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0)),
-                      gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          colors: [colorAccent, colorAccent2]))),
+              leftContainerShowBottomSheet(),
               Padding(
                   padding: const EdgeInsets.fromLTRB(0, 12, 0, 12),
                   child: Container(
@@ -417,19 +408,7 @@ showBottomSheetRoaming(
           ),
           child: Row(
             children: <Widget>[
-              Container(
-                  height: double.infinity,
-                  width: 15,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(0),
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0)),
-                      gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          colors: [colorAccent, colorAccent2]))),
+              leftContainerShowBottomSheet(),
               Padding(
                   padding: const EdgeInsets.fromLTRB(32, 12, 48, 12),
                   child: Container(
@@ -552,6 +531,22 @@ showBottomSheetRoaming(
           ));
     },
   );
+}
+
+Widget leftContainerShowBottomSheet() {
+  return Container(
+      height: double.infinity,
+      width: 15,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(0),
+              bottomLeft: Radius.circular(0),
+              bottomRight: Radius.circular(0)),
+          gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [colorAccent, colorAccent2])));
 }
 
 BoxDecoration boxDecoration() {
@@ -679,4 +674,166 @@ class TextSized extends StatelessWidget {
       ..layout(minWidth: 0, maxWidth: double.infinity);
     return textPainter.size;
   }
+}
+
+AppBar buttonAppBar(TabController _controller, int _selectedIndex) {
+  return AppBar(
+    elevation: 0,
+    automaticallyImplyLeading: false,
+    backgroundColor: Colors.white,
+    flexibleSpace: new Column(
+      children: [
+        TabBar(
+          controller: _controller,
+          onTap: (index) {
+            _selectedIndex = _controller.index;
+          },
+          isScrollable: true,
+          labelPadding: EdgeInsets.symmetric(horizontal: 2, vertical: 0),
+          indicator: BoxDecoration(
+            borderRadius: BorderRadius.circular(80),
+          ),
+          tabs: [
+            tab(_selectedIndex, 1, 'Quiz'),
+            tab(_selectedIndex, 0, 'Ramadan'),
+          ],
+        ),
+      ],
+    ),
+  );
+}
+
+Tab tab(_selectedIndex, index, tabName) {
+  return Tab(
+      child: Container(
+    height: 24,
+    width: tabName == 'Ramadan' ? 90 : 68,
+    decoration: BoxDecoration(
+      border: Border.all(
+          width: 0.5,
+          color:
+              _selectedIndex == index ? colorPrimary_light : Colors.redAccent),
+      color: Colors.white,
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(18.0),
+        topRight: const Radius.circular(18.0),
+        bottomLeft: Radius.circular(18.0),
+        bottomRight: const Radius.circular(18.0),
+      ),
+    ),
+    child: Align(
+      alignment: Alignment.center,
+      child: Text(
+        tabName,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+            fontSize: 13,
+            color: _selectedIndex == index
+                ? colorPrimary_light
+                : Colors.redAccent),
+      ),
+    ),
+  ));
+}
+
+Widget containerSalat(context, icon, salatName, salatTime) {
+  return Row(
+    children: <Widget>[
+      Image.asset(icon, height: 22, width: 22, color: colorAccent),
+      SizedBox(
+        width: 20,
+      ),
+      Container(
+          width: MediaQuery.of(context).size.width / 3,
+          child: Text(
+            salatName,
+            style: TextStyle(color: colorPrimary_light, fontSize: 16),
+          )),
+      Container(
+          width: MediaQuery.of(context).size.width / 3,
+          child: Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  salatTime,
+                  style: TextStyle(color: colorPrimary_light, fontSize: 16),
+                ),
+              ))),
+    ],
+  );
+}
+
+showBottomSheetFlexy(context) async {
+  var w = MediaQuery.of(context).size.width;
+
+  showModalBottomSheet(
+    backgroundColor: Colors.transparent,
+    context: context,
+    isScrollControlled: true,
+    builder: (context) {
+      // return DefaultTabController(
+      //   length: 3,
+      //   child: Scaffold(
+      //     appBar: AppBar(
+      //       bottom: TabBar(
+      //         tabs: [
+      //           Tab(icon: Icon(Icons.directions_car)),
+      //           Tab(icon: Icon(Icons.directions_transit)),
+      //           Tab(icon: Icon(Icons.directions_bike)),
+      //         ],
+      //       ),
+      //       title: Text('Tabs Demo'),
+      //     ),
+      //     body: TabBarView(
+      //       children: [
+      //         Icon(Icons.directions_car),
+      //         Icon(Icons.directions_transit),
+      //         Icon(Icons.directions_bike),
+      //       ],
+      //     ),
+      //   ),
+      // );
+      return Container(
+          width: w,
+          height: w * 0.855,
+          decoration: BoxDecoration(
+            color: colorPrimary,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(18.0),
+              topRight: const Radius.circular(18.0),
+            ),
+          ),
+          child: DefaultTabController(
+            length: 2,
+            child: Scaffold(
+              appBar: PreferredSize(
+                preferredSize: Size.fromHeight(kToolbarHeight),
+                child: new Container(
+                  height: 50.0,
+                  child: new TabBar(
+                    isScrollable: true,
+                    tabs: [
+                      Tab(
+                          icon: Icon(
+                        Icons.directions_car,
+                        color: Colors.grey,
+                      )),
+                      Tab(
+                          icon: Icon(Icons.directions_transit,
+                              color: Colors.grey)),
+                    ],
+                  ),
+                ),
+              ),
+              body: TabBarView(
+                children: [
+                  Icon(Icons.directions_car),
+                  Icon(Icons.directions_transit),
+                ],
+              ),
+            ),
+          ));
+    },
+  );
 }

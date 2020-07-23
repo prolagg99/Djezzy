@@ -1,4 +1,5 @@
 import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
+import 'package:djezzy/Djezzy/utils/DjezzyWidget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -86,15 +87,7 @@ class DjezzySliderWidgetState extends State<DjezzySliderWidget> {
         SizedBox(
           height: 2,
         ),
-        DotsIndicator(
-            dotsCount: mSliderList.length,
-            position: currentIndexPage,
-            decorator: DotsDecorator(
-              size: const Size.square(8.0),
-              activeSize: const Size.square(8.0),
-              color: colorPrimary_light,
-              activeColor: colorAccent,
-            ))
+        dotsIndicator(mSliderList.length, currentIndexPage),
       ],
     );
   }

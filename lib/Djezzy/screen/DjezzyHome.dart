@@ -3,7 +3,6 @@ import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyDataGenerator.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyConstant.dart';
-import 'package:djezzy/Djezzy/utils/DjezzyImages.dart';
 import 'package:djezzy/Djezzy/utils/DjezzySlider.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyWidget.dart';
 import 'package:djezzy/Djezzy/model/DjezzyModels.dart';
