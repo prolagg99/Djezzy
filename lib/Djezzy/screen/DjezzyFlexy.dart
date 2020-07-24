@@ -75,9 +75,25 @@ class Flexy extends StatefulWidget {
   _FlexyState createState() => _FlexyState();
 }
 
-class _FlexyState extends State<Flexy> {
+class _FlexyState extends State<Flexy> with SingleTickerProviderStateMixin {
+  TabController _controller;
+  int _selectedIndex;
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = TabController(length: 2, vsync: this);
+    _controller.addListener(() {
+      setState(() {
+        _selectedIndex = _controller.index;
+      });
+      print("Selected Index: " + _controller.index.toString());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
     return Container(
       child: Column(
         children: <Widget>[
@@ -85,7 +101,108 @@ class _FlexyState extends State<Flexy> {
             padding: const EdgeInsets.symmetric(vertical: 4),
             child: InkWell(
               onTap: () {
-                showBottomSheetFlexy(context);
+                showModalBottomSheet(
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  isScrollControlled: true,
+                  builder: (context) {
+                    return Container(
+                        width: w,
+                        height: w * 0.852,
+                        decoration: BoxDecoration(
+                          color: colorPrimary,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(18.0),
+                            topRight: const Radius.circular(18.0),
+                          ),
+                        ),
+                        child: DefaultTabController(
+                          length: 2,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 10, horizontal: 12),
+                            child: Scaffold(
+                              // backgroundColor: Colors.black,
+                              appBar: PreferredSize(
+                                preferredSize: Size.fromHeight(kToolbarHeight),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 0, horizontal: 0),
+                                  child: new Container(
+                                    height: 48.0,
+                                    child: new TabBar(
+                                      controller: _controller,
+                                      onTap: (index) {
+                                        _selectedIndex = _controller.index;
+                                      },
+                                      isScrollable: true,
+                                      labelPadding: EdgeInsets.symmetric(
+                                          horizontal: 0, vertical: 0),
+                                      indicatorColor: colorAccent,
+                                      indicatorSize: TabBarIndicatorSize.label,
+                                      tabs: [
+                                        Tab(
+                                            child: Container(
+                                                width: 88,
+                                                height: double.infinity,
+                                                child: Align(
+                                                  alignment: Alignment.center,
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 2),
+                                                    child: Text(
+                                                      'INTERNET',
+                                                      style: TextStyle(
+                                                          color: _selectedIndex ==
+                                                                  0
+                                                              ? colorAccent
+                                                              : colorPrimary_light,
+                                                          fontSize: 14),
+                                                    ),
+                                                  ),
+                                                ))),
+                                        Tab(
+                                            child: Container(
+                                                width: 88,
+                                                height: double.infinity,
+                                                child: Align(
+                                                  alignment: Alignment.center,
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 2.0),
+                                                    child: Text(
+                                                      'CREDIT',
+                                                      style: TextStyle(
+                                                          color: _selectedIndex ==
+                                                                  1
+                                                              ? colorAccent
+                                                              : colorPrimary_light,
+                                                          fontSize: 14),
+                                                    ),
+                                                  ),
+                                                ))),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              body: TabBarView(
+                                controller: _controller,
+                                children: [
+                                  Text(_selectedIndex.toString()),
+                                  Text(_selectedIndex.toString()),
+
+                                  // Icon(Icons.phone),
+                                  // Icon(Icons.directions_transit),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ));
+                  },
+                );
               },
               child: Container(
                 // color: Colors.grey[400],

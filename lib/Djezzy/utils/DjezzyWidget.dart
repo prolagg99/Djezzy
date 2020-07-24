@@ -679,7 +679,6 @@ class TextSized extends StatelessWidget {
 AppBar buttonAppBar(TabController _controller, int _selectedIndex) {
   return AppBar(
     elevation: 0,
-    automaticallyImplyLeading: false,
     backgroundColor: Colors.white,
     flexibleSpace: new Column(
       children: [
@@ -764,7 +763,8 @@ Widget containerSalat(context, icon, salatName, salatTime) {
   );
 }
 
-showBottomSheetFlexy(context) async {
+showBottomSheetFlexy(
+    context, TabController controller2, int selectedIndex2) async {
   var w = MediaQuery.of(context).size.width;
 
   showModalBottomSheet(
@@ -772,31 +772,9 @@ showBottomSheetFlexy(context) async {
     context: context,
     isScrollControlled: true,
     builder: (context) {
-      // return DefaultTabController(
-      //   length: 3,
-      //   child: Scaffold(
-      //     appBar: AppBar(
-      //       bottom: TabBar(
-      //         tabs: [
-      //           Tab(icon: Icon(Icons.directions_car)),
-      //           Tab(icon: Icon(Icons.directions_transit)),
-      //           Tab(icon: Icon(Icons.directions_bike)),
-      //         ],
-      //       ),
-      //       title: Text('Tabs Demo'),
-      //     ),
-      //     body: TabBarView(
-      //       children: [
-      //         Icon(Icons.directions_car),
-      //         Icon(Icons.directions_transit),
-      //         Icon(Icons.directions_bike),
-      //       ],
-      //     ),
-      //   ),
-      // );
       return Container(
           width: w,
-          height: w * 0.855,
+          height: w * 0.852,
           decoration: BoxDecoration(
             color: colorPrimary,
             borderRadius: BorderRadius.only(
@@ -806,34 +784,257 @@ showBottomSheetFlexy(context) async {
           ),
           child: DefaultTabController(
             length: 2,
-            child: Scaffold(
-              appBar: PreferredSize(
-                preferredSize: Size.fromHeight(kToolbarHeight),
-                child: new Container(
-                  height: 50.0,
-                  child: new TabBar(
-                    isScrollable: true,
-                    tabs: [
-                      Tab(
-                          icon: Icon(
-                        Icons.directions_car,
-                        color: Colors.grey,
-                      )),
-                      Tab(
-                          icon: Icon(Icons.directions_transit,
-                              color: Colors.grey)),
-                    ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+              child: Scaffold(
+                // backgroundColor: Colors.black,
+                appBar: PreferredSize(
+                  preferredSize: Size.fromHeight(kToolbarHeight),
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                    child: new Container(
+                      height: 48.0,
+                      child: new TabBar(
+                        // controller: controller2,
+                        onTap: (index) {
+                          selectedIndex2 = controller2.index;
+                        },
+                        isScrollable: true,
+                        labelPadding:
+                            EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                        indicatorColor: colorAccent,
+                        indicatorSize: TabBarIndicatorSize.label,
+                        tabs: [
+                          InkWell(
+                            onTap: () {
+                              print(selectedIndex2);
+                            },
+                            child: Tab(
+                                child: Container(
+                                    width: 88,
+                                    height: double.infinity,
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(top: 2),
+                                        child: Text(
+                                          'INTERNET',
+                                          style: TextStyle(
+                                              color: selectedIndex2 == 1
+                                                  ? colorAccent
+                                                  : colorPrimary_light,
+                                              fontSize: 14),
+                                        ),
+                                      ),
+                                    ))),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              print(selectedIndex2);
+                            },
+                            child: Tab(
+                                child: Container(
+                                    width: 88,
+                                    height: double.infinity,
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 2.0),
+                                        child: Text(
+                                          'CREDIT',
+                                          style: TextStyle(
+                                              color: selectedIndex2 == 0
+                                                  ? colorAccent
+                                                  : colorPrimary_light,
+                                              fontSize: 14),
+                                        ),
+                                      ),
+                                    ))),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              body: TabBarView(
-                children: [
-                  Icon(Icons.directions_car),
-                  Icon(Icons.directions_transit),
-                ],
+                body: TabBarView(
+                  children: [
+                    Icon(Icons.phone),
+
+                    // flexyInternet(context),
+                    Icon(Icons.directions_transit),
+                  ],
+                ),
               ),
             ),
           ));
     },
+  );
+}
+
+Widget flexyInternet(context) {
+  return Container(
+    height: MediaQuery.of(context).size.height,
+    child: Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  height: MediaQuery.of(context).size.height * (0.075),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Quota à transférer ?',
+                      style: TextStyle(color: colorPrimary_light, fontSize: 18),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width - 24,
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        '500',
+                        style: TextStyle(color: Colors.black, fontSize: 40),
+                      ),
+                      Text('Mo'),
+                      SizedBox(width: 94),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 4.0),
+                        child: Container(
+                            height: 36,
+                            width: 68,
+                            decoration: BoxDecoration(
+                                color: colorPrimary,
+                                borderRadius: BorderRadius.circular(60),
+                                border: Border.all(
+                                  width: 0.5,
+                                  color: Colors.grey[300],
+                                )),
+                            child: Icon(
+                              Icons.remove,
+                              size: 34,
+                              color: colorPrimary_dark,
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                              height: 36,
+                              width: 68,
+                              decoration: BoxDecoration(
+                                  color: colorPrimary,
+                                  borderRadius: BorderRadius.circular(60),
+                                  border: Border.all(
+                                    width: 0.5,
+                                    color: Colors.grey[300],
+                                  )),
+                              child: Icon(
+                                Icons.add,
+                                size: 34,
+                                color: colorPrimary_dark,
+                              )),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+        SizedBox(height: 10),
+        Row(
+          children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  height: 30,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'A qui?',
+                      style: TextStyle(color: colorPrimary_light, fontSize: 18),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 6),
+                Container(
+                  height: 96,
+                  width: MediaQuery.of(context).size.width - 24,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: colorPrimary,
+                      border: Border.all(width: 0.5, color: Colors.redAccent)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: <Widget>[
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                                height: 62,
+                                width: 62,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(60),
+                                    border: Border.all(
+                                      width: 0.5,
+                                      color: Colors.grey[300],
+                                    )),
+                                child: Icon(
+                                  Icons.person_add,
+                                  size: 30,
+                                  color: colorAccent2,
+                                )),
+                            Text(
+                              'Mes Contacts',
+                              style: TextStyle(fontSize: 12),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 16),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                                height: 62,
+                                width: 62,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(60),
+                                    border: Border.all(
+                                      width: 0.5,
+                                      color: Colors.grey[300],
+                                    )),
+                                child: Icon(
+                                  Icons.phone,
+                                  size: 30,
+                                  color: Colors.purple[100],
+                                )),
+                            Text(
+                              'Composer numéro',
+                              style: TextStyle(fontSize: 12),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ],
+    ),
   );
 }
