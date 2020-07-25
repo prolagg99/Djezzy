@@ -763,278 +763,450 @@ Widget containerSalat(context, icon, salatName, salatTime) {
   );
 }
 
-showBottomSheetFlexy(
-    context, TabController controller2, int selectedIndex2) async {
-  var w = MediaQuery.of(context).size.width;
-
-  showModalBottomSheet(
-    backgroundColor: Colors.transparent,
-    context: context,
-    isScrollControlled: true,
-    builder: (context) {
-      return Container(
-          width: w,
-          height: w * 0.852,
-          decoration: BoxDecoration(
-            color: colorPrimary,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(18.0),
-              topRight: const Radius.circular(18.0),
-            ),
-          ),
-          child: DefaultTabController(
-            length: 2,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-              child: Scaffold(
-                // backgroundColor: Colors.black,
-                appBar: PreferredSize(
-                  preferredSize: Size.fromHeight(kToolbarHeight),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-                    child: new Container(
-                      height: 48.0,
-                      child: new TabBar(
-                        // controller: controller2,
-                        onTap: (index) {
-                          selectedIndex2 = controller2.index;
-                        },
-                        isScrollable: true,
-                        labelPadding:
-                            EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                        indicatorColor: colorAccent,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        tabs: [
-                          InkWell(
-                            onTap: () {
-                              print(selectedIndex2);
-                            },
-                            child: Tab(
-                                child: Container(
-                                    width: 88,
-                                    height: double.infinity,
-                                    child: Align(
-                                      alignment: Alignment.center,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(top: 2),
-                                        child: Text(
-                                          'INTERNET',
-                                          style: TextStyle(
-                                              color: selectedIndex2 == 1
-                                                  ? colorAccent
-                                                  : colorPrimary_light,
-                                              fontSize: 14),
-                                        ),
-                                      ),
-                                    ))),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              print(selectedIndex2);
-                            },
-                            child: Tab(
-                                child: Container(
-                                    width: 88,
-                                    height: double.infinity,
-                                    child: Align(
-                                      alignment: Alignment.center,
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 2.0),
-                                        child: Text(
-                                          'CREDIT',
-                                          style: TextStyle(
-                                              color: selectedIndex2 == 0
-                                                  ? colorAccent
-                                                  : colorPrimary_light,
-                                              fontSize: 14),
-                                        ),
-                                      ),
-                                    ))),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                body: TabBarView(
-                  children: [
-                    Icon(Icons.phone),
-
-                    // flexyInternet(context),
-                    Icon(Icons.directions_transit),
-                  ],
-                ),
-              ),
-            ),
-          ));
-    },
-  );
+class FlexyInternetCredit extends StatefulWidget {
+  var value;
+  FlexyInternetCredit(var this.value);
+  @override
+  _FlexyInternetCreditState createState() => _FlexyInternetCreditState();
 }
 
-Widget flexyInternet(context) {
-  return Container(
-    height: MediaQuery.of(context).size.height,
-    child: Column(
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  height: MediaQuery.of(context).size.height * (0.075),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Quota à transférer ?',
-                      style: TextStyle(color: colorPrimary_light, fontSize: 18),
+class _FlexyInternetCreditState extends State<FlexyInternetCredit> {
+  bool clickable = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    height: MediaQuery.of(context).size.height * (0.075),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        widget.value == 'internet'
+                            ? 'Quota à transférer ?'
+                            : 'Montant à transférer ?',
+                        style:
+                            TextStyle(color: colorPrimary_light, fontSize: 18),
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width - 24,
-                  child: Row(
-                    children: <Widget>[
-                      Text(
-                        '500',
-                        style: TextStyle(color: Colors.black, fontSize: 40),
+                  QuantityInternetBtn(widget.value),
+                ],
+              )
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    height: 30,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'A qui?',
+                        style:
+                            TextStyle(color: colorPrimary_light, fontSize: 18),
                       ),
-                      Text('Mo'),
-                      SizedBox(width: 94),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 4.0),
-                        child: Container(
-                            height: 36,
-                            width: 68,
-                            decoration: BoxDecoration(
-                                color: colorPrimary,
-                                borderRadius: BorderRadius.circular(60),
-                                border: Border.all(
-                                  width: 0.5,
-                                  color: Colors.grey[300],
-                                )),
-                            child: Icon(
-                              Icons.remove,
-                              size: 34,
-                              color: colorPrimary_dark,
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8.0),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                              height: 36,
-                              width: 68,
-                              decoration: BoxDecoration(
-                                  color: colorPrimary,
-                                  borderRadius: BorderRadius.circular(60),
-                                  border: Border.all(
-                                    width: 0.5,
-                                    color: Colors.grey[300],
-                                  )),
-                              child: Icon(
-                                Icons.add,
-                                size: 34,
-                                color: colorPrimary_dark,
-                              )),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
-        SizedBox(height: 10),
-        Row(
-          children: <Widget>[
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  height: 30,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'A qui?',
-                      style: TextStyle(color: colorPrimary_light, fontSize: 18),
                     ),
                   ),
-                ),
-                SizedBox(height: 6),
-                Container(
-                  height: 96,
-                  width: MediaQuery.of(context).size.width - 24,
+                  SizedBox(height: 6),
+                  Container(
+                    height: 96,
+                    width: MediaQuery.of(context).size.width - 24,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: colorPrimary,
+                        border:
+                            Border.all(width: 0.5, color: Colors.redAccent)),
+                    child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: <Widget>[
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                    height: 62,
+                                    width: 62,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(60),
+                                        border: Border.all(
+                                          width: 0.5,
+                                          color: Colors.grey[300],
+                                        )),
+                                    child: Icon(
+                                      Icons.person_add,
+                                      size: 30,
+                                      color: colorAccent2,
+                                    )),
+                                Text(
+                                  'Mes Contacts',
+                                  style: TextStyle(fontSize: 12),
+                                )
+                              ],
+                            ),
+                            SizedBox(width: 16),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {});
+                                  },
+                                  child: Container(
+                                      height: 62,
+                                      width: 62,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(60),
+                                          border: Border.all(
+                                            width: 0.5,
+                                            color: Colors.grey[300],
+                                          )),
+                                      child: Icon(
+                                        Icons.phone,
+                                        size: 30,
+                                        color: Colors.purple[100],
+                                      )),
+                                ),
+                                Text(
+                                  'Composer numéro',
+                                  style: TextStyle(fontSize: 12),
+                                )
+                              ],
+                            ),
+                          ],
+                        )),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class QuantityInternetBtn extends StatefulWidget {
+  var flexy;
+  QuantityInternetBtn(var this.flexy);
+  @override
+  _QuantityInternetBtnState createState() => _QuantityInternetBtnState();
+}
+
+class _QuantityInternetBtnState extends State<QuantityInternetBtn> {
+  int mo = 500;
+  int da = 50;
+
+  void _countInternetMore() {
+    setState(() {
+      if (mo == 500)
+        mo = 1;
+      else if (mo < 2) mo++;
+    });
+  }
+
+  void _countInternetLess() {
+    setState(() {
+      if (mo == 2)
+        mo--;
+      else if (mo == 1) mo = 500;
+    });
+  }
+
+  void _countCreditMore() {
+    setState(() {
+      if (da < 100) da += 10;
+    });
+  }
+
+  void _countCreditLess() {
+    setState(() {
+      if (da > 50) da -= 10;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width - 24,
+      child: Row(
+        children: <Widget>[
+          Text(
+            widget.flexy == 'internet' ? mo.toString() : da.toString(),
+            style: TextStyle(color: Colors.black, fontSize: 40),
+          ),
+          Text(
+            widget.flexy == 'internet' ? (mo == 500 ? 'Mo' : 'Go') : 'da',
+            style: TextStyle(color: colorPrimary_light, fontSize: 18),
+          ),
+          widget.flexy == 'internet'
+              ? SizedBox(width: mo == 500 ? 94 : 142)
+              : SizedBox(width: da == 100 ? 100 : 123),
+          Padding(
+            padding: const EdgeInsets.only(right: 4.0),
+            child: InkWell(
+              onTap: () {
+                widget.flexy == 'internet'
+                    ? _countInternetLess()
+                    : _countCreditLess();
+              },
+              child: Container(
+                  height: 36,
+                  width: 68,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
                       color: colorPrimary,
-                      border: Border.all(width: 0.5, color: Colors.redAccent)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: <Widget>[
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                                height: 62,
-                                width: 62,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(60),
-                                    border: Border.all(
-                                      width: 0.5,
-                                      color: Colors.grey[300],
-                                    )),
-                                child: Icon(
-                                  Icons.person_add,
-                                  size: 30,
-                                  color: colorAccent2,
-                                )),
-                            Text(
-                              'Mes Contacts',
-                              style: TextStyle(fontSize: 12),
-                            )
-                          ],
+                      borderRadius: BorderRadius.circular(60),
+                      border: Border.all(
+                        width: 0.5,
+                        color: Colors.grey[300],
+                      )),
+                  child: Icon(
+                    Icons.remove,
+                    size: 34,
+                    color: colorPrimary_dark,
+                  )),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: InkWell(
+              onTap: () {
+                widget.flexy == 'internet'
+                    ? _countInternetMore()
+                    : _countCreditMore();
+              },
+              child: Container(
+                  height: 36,
+                  width: 68,
+                  decoration: BoxDecoration(
+                      color: colorPrimary,
+                      borderRadius: BorderRadius.circular(60),
+                      border: Border.all(
+                        width: 0.5,
+                        color: Colors.grey[300],
+                      )),
+                  child: Icon(
+                    Icons.add,
+                    size: 34,
+                    color: colorPrimary_dark,
+                  )),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+Widget ConfirmflexyInternetCredit(context, value) {
+  final number = "0796123112"
+      .replaceAllMapped(RegExp(r".{2}"), (match) => "${match.group(0)} ");
+  return Scaffold(
+    backgroundColor: Colors.transparent,
+    body: Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+      child: Container(
+        color: Colors.white,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      height: MediaQuery.of(context).size.height * (0.075),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          value == 'internet'
+                              ? 'Quota à transférer ?'
+                              : 'Montant à transférer ?',
+                          style: TextStyle(
+                              color: colorPrimary_light, fontSize: 18),
                         ),
-                        SizedBox(width: 16),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                                height: 62,
-                                width: 62,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(60),
-                                    border: Border.all(
-                                      width: 0.5,
-                                      color: Colors.grey[300],
-                                    )),
-                                child: Icon(
-                                  Icons.phone,
-                                  size: 30,
-                                  color: Colors.purple[100],
-                                )),
-                            Text(
-                              'Composer numéro',
-                              style: TextStyle(fontSize: 12),
-                            )
-                          ],
+                      ),
+                    ),
+                    QuantityInternetBtn(value),
+                  ],
+                )
+              ],
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      height: 30,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'A qui?',
+                          style: TextStyle(
+                              color: colorPrimary_light, fontSize: 18),
                         ),
-                      ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 16.0, horizontal: 8),
+                      child: Container(
+                        height: 100,
+                        width: MediaQuery.of(context).size.width - 40,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: colorPrimary,
+                            border: Border.all(
+                                width: 0.5, color: Colors.redAccent)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 10),
+                          child: Row(
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Container(
+                                      height: 62,
+                                      width: 62,
+                                      decoration: BoxDecoration(
+                                          color: colorPrimary,
+                                          borderRadius:
+                                              BorderRadius.circular(60),
+                                          border: Border.all(
+                                            width: 0.5,
+                                            color: Colors.grey[300],
+                                          )),
+                                      child: Icon(
+                                        Icons.person,
+                                        size: 30,
+                                        color: colorAccent2,
+                                      )),
+                                  Text(
+                                    number,
+                                    style: TextStyle(fontSize: 12),
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(4, 14.0, 4, 6),
+              child: Row(children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Container(
+                        // color: Colors.grey,
+                        width: MediaQuery.of(context).size.width / 4,
+                        child: Text(
+                          'Frais de transfert :',
+                          style: TextStyle(
+                              color: colorPrimary_light, fontSize: 18),
+                        )),
+                    Container(
+                        // color: Colors.green,
+                        width: MediaQuery.of(context).size.width / 1.8,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(value == 'credit' ? '10' : '30',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 40)),
+                        )),
+                    Text('DA',
+                        style:
+                            TextStyle(color: colorPrimary_light, fontSize: 18))
+                  ],
+                ),
+              ]),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4.0),
+              child: Row(
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {
+                      back(context);
+                    },
+                    child: Container(
+                        decoration: BoxDecoration(
+                            color: colorPrimary,
+                            borderRadius: BorderRadius.circular(26),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  spreadRadius: 0.5,
+                                  blurRadius: 3,
+                                  offset:
+                                      Offset(0, 3) // changes position of shadow
+                                  )
+                            ]),
+                        height: 48,
+                        width: MediaQuery.of(context).size.width / 4,
+                        child: Icon(
+                          Icons.keyboard_arrow_left,
+                          color: colorPrimary_dark,
+                          size: 34,
+                        )),
+                  ),
+                  SizedBox(width: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.red[700],
+                        borderRadius: BorderRadius.circular(26),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(0.4),
+                              spreadRadius: 0.5,
+                              blurRadius: 4,
+                              offset: Offset(0, 4) // changes position of shadow
+                              )
+                        ]),
+                    height: 48,
+                    width: MediaQuery.of(context).size.width - 132,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'CONFIRMER',
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             )
           ],
         ),
-      ],
+      ),
     ),
   );
 }

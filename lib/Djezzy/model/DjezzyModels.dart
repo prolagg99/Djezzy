@@ -34,3 +34,11 @@ class DjezzyRoaming {
   var imgoffre2 = "";
   var imgoffre3 = "";
 }
+
+class DjezzyFlexyCard {
+  var number = "";
+  var type = ""; // internet or credit
+  var quantity = "";
+  var date = "";
+  var time = "";
+}

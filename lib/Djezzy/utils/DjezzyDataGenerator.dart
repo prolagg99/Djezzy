@@ -166,12 +166,8 @@ List<DjezzyRoaming> getRoaming() {
 
   model1.type = 'Internet';
   model1.offre1 = '100 Mb';
-  // model1.offre2 = '';
-  // model1.offre3 = '';
 
   model1.imgoffre1 = ic_world;
-  // model1.imgoffre2 = ic_world2;
-  // model1.imgoffre3 = ic_server;
 
   DjezzyRoaming model2 = DjezzyRoaming();
   model2.roaming = 'Roaming Internet 2000';
@@ -180,12 +176,7 @@ List<DjezzyRoaming> getRoaming() {
 
   model2.type = 'Internet';
   model2.offre1 = '250 Mb';
-  // model2.offre2 = '';
-  // model2.offre3 = '';
-
   model2.imgoffre1 = ic_world;
-  // model2.imgoffre2 = ic_server;
-  // model2.imgoffre3 = ic_offercall;
 
   DjezzyRoaming model3 = DjezzyRoaming();
   model3.roaming = 'Roaming Appels 1000';
@@ -194,12 +185,8 @@ List<DjezzyRoaming> getRoaming() {
 
   model3.type = 'Calls';
   model3.offre1 = '10 Min';
-  // model3.offre2 = '';
-  // model3.offre3 = '';
 
   model3.imgoffre1 = ic_offercall;
-  // model3.imgoffre2 = ic_offercall;
-  // model3.imgoffre3 = ic_offermsg;
 
   DjezzyRoaming model4 = DjezzyRoaming();
   model4.roaming = 'Roaming Appels 2000';
@@ -208,12 +195,8 @@ List<DjezzyRoaming> getRoaming() {
 
   model4.type = 'Calls';
   model4.offre1 = '20 Min';
-  // model4.offre2 = '';
-  // model4.offre3 = '';
 
   model4.imgoffre1 = ic_offercall;
-  // model4.imgoffre2 = ic_offercall;
-  // model4.imgoffre3 = ic_offermsg;
 
   DjezzyRoaming model5 = DjezzyRoaming();
   model5.roaming = 'Roaming Mixte 4000';
@@ -233,6 +216,29 @@ List<DjezzyRoaming> getRoaming() {
   list.add(model3);
   list.add(model4);
   list.add(model5);
+
+  return list;
+}
+
+List<DjezzyFlexyCard> getFlexy() {
+  List<DjezzyFlexyCard> list = List<DjezzyFlexyCard>();
+
+  DjezzyFlexyCard model1 = DjezzyFlexyCard();
+  model1.number = '0796123112';
+  model1.type = 'credit';
+  model1.quantity = '50 DA';
+  model1.date = 'Mer. 01 Juil.,';
+  model1.time = '22:33';
+
+  DjezzyFlexyCard model2 = DjezzyFlexyCard();
+  model2.number = '0796123112';
+  model2.type = 'internet';
+  model2.quantity = '500 Mo';
+  model2.date = 'Mer. 01 Juil.,';
+  model2.time = '22:33';
+
+  list.add(model1);
+  list.add(model2);
 
   return list;
 }
