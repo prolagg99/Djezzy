@@ -1,6 +1,4 @@
-import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyWidget.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:djezzy/Djezzy/model/DjezzyModels.dart';

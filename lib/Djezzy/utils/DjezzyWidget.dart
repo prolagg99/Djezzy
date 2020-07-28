@@ -3,7 +3,6 @@ import 'package:djezzy/Djezzy/utils/DjezzyImages.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyConstant.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
-import 'package:djezzy/Djezzy/utils/codePicker/wilaya_name.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -765,7 +764,8 @@ Widget containerSalat(context, icon, salatName, salatTime) {
 
 class FlexyInternetCredit extends StatefulWidget {
   var value;
-  FlexyInternetCredit(var this.value);
+  final ValueChanged<bool> onChange;
+  FlexyInternetCredit(this.value, this.onChange);
   @override
   _FlexyInternetCreditState createState() => _FlexyInternetCreditState();
 }
@@ -775,7 +775,6 @@ class _FlexyInternetCreditState extends State<FlexyInternetCredit> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -826,76 +825,108 @@ class _FlexyInternetCreditState extends State<FlexyInternetCredit> {
                     ),
                   ),
                   SizedBox(height: 6),
-                  Container(
-                    height: 96,
-                    width: MediaQuery.of(context).size.width - 24,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: colorPrimary,
-                        border:
-                            Border.all(width: 0.5, color: Colors.redAccent)),
-                    child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: <Widget>[
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Container(
-                                    height: 62,
-                                    width: 62,
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(60),
-                                        border: Border.all(
-                                          width: 0.5,
-                                          color: Colors.grey[300],
-                                        )),
-                                    child: Icon(
-                                      Icons.person_add,
-                                      size: 30,
-                                      color: colorAccent2,
-                                    )),
-                                Text(
-                                  'Mes Contacts',
-                                  style: TextStyle(fontSize: 12),
-                                )
-                              ],
-                            ),
-                            SizedBox(width: 16),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                InkWell(
-                                  onTap: () {
-                                    setState(() {});
-                                  },
-                                  child: Container(
-                                      height: 62,
-                                      width: 62,
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(60),
-                                          border: Border.all(
-                                            width: 0.5,
-                                            color: Colors.grey[300],
-                                          )),
-                                      child: Icon(
-                                        Icons.phone,
-                                        size: 30,
-                                        color: Colors.purple[100],
-                                      )),
+                  clickable
+                      ? Container(
+                          height: 73,
+                          width: MediaQuery.of(context).size.width - 24,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: colorPrimary,
+                              border: Border.all(
+                                  width: 0.5, color: Colors.redAccent)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 0),
+                                child: TextField(
+                                  keyboardType: TextInputType.number,
+                                  style: TextStyle(height: 1.6),
+                                  cursorColor: Colors.green[800],
+                                  textAlign: TextAlign.center,
+                                  autofocus: false,
+                                  decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: 'Numéro'),
                                 ),
-                                Text(
-                                  'Composer numéro',
-                                  style: TextStyle(fontSize: 12),
-                                )
-                              ],
+                              ),
                             ),
-                          ],
-                        )),
-                  ),
+                          ))
+                      : Container(
+                          height: 96,
+                          width: MediaQuery.of(context).size.width - 24,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: colorPrimary,
+                              border: Border.all(
+                                  width: 0.5, color: Colors.redAccent)),
+                          child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Container(
+                                          height: 62,
+                                          width: 62,
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(60),
+                                              border: Border.all(
+                                                width: 0.5,
+                                                color: Colors.grey[300],
+                                              )),
+                                          child: Icon(
+                                            Icons.person_add,
+                                            size: 30,
+                                            color: colorAccent2,
+                                          )),
+                                      Text(
+                                        'Mes Contacts',
+                                        style: TextStyle(fontSize: 12),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            clickable = true;
+                                            widget.onChange(clickable);
+                                          });
+                                        },
+                                        child: Container(
+                                            height: 62,
+                                            width: 62,
+                                            decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(60),
+                                                border: Border.all(
+                                                  width: 0.5,
+                                                  color: Colors.grey[300],
+                                                )),
+                                            child: Icon(
+                                              Icons.phone,
+                                              size: 30,
+                                              color: Colors.purple[100],
+                                            )),
+                                      ),
+                                      Text(
+                                        'Composer numéro',
+                                        style: TextStyle(fontSize: 12),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              )),
+                        ),
                 ],
               )
             ],
@@ -1209,4 +1240,154 @@ Widget ConfirmflexyInternetCredit(context, value) {
       ),
     ),
   );
+}
+
+class FloatingBtnContainer extends StatefulWidget {
+  @override
+  _FloatingBtnContainerState createState() => _FloatingBtnContainerState();
+}
+
+class _FloatingBtnContainerState extends State<FloatingBtnContainer>
+    with SingleTickerProviderStateMixin {
+  TabController _controller;
+  int _selectedIndex = 0;
+  // static bool clickable = false;
+
+  ValueChanged<bool> onChange;
+  bool isClickedOn = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TabController(length: 2, vsync: this);
+    _controller.addListener(() {
+      setState(() {
+        _selectedIndex = _controller.index;
+      });
+      print("Selected Index: " + _controller.index.toString());
+    });
+    onChange = (value) {
+      setState(() {
+        isClickedOn = value;
+      });
+    };
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    return Container(
+        height: 46.0,
+        width: 46.0,
+        child: FittedBox(
+            child: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+                backgroundColor: Colors.transparent,
+                context: context,
+                // isDismissible: true,
+                isScrollControlled: true,
+                builder: (context) {
+                  return StatefulBuilder(
+                      builder: (BuildContext context, StateSetter setState) {
+                    return SingleChildScrollView(
+                      child: Container(
+                          width: w,
+                          height: !isClickedOn ? 307 : 282,
+                          decoration: BoxDecoration(
+                            color: colorPrimary,
+                            // color: Colors.black,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(18.0),
+                              topRight: const Radius.circular(18.0),
+                            ),
+                          ),
+                          child: DefaultTabController(
+                            length: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 12),
+                              child: Scaffold(
+                                resizeToAvoidBottomInset: true,
+                                appBar: PreferredSize(
+                                  preferredSize:
+                                      Size.fromHeight(kToolbarHeight),
+                                  child: new Container(
+                                    // color: Colors.green,
+                                    height: 48.0,
+                                    child: new TabBar(
+                                      controller: _controller,
+                                      onTap: (index) {
+                                        setState(() {
+                                          _selectedIndex = _controller.index;
+                                        });
+                                      },
+                                      isScrollable: true,
+                                      labelPadding: EdgeInsets.symmetric(
+                                          horizontal: 0, vertical: 0),
+                                      indicatorColor: colorAccent,
+                                      indicatorSize: TabBarIndicatorSize.label,
+                                      tabs: [
+                                        Tab(
+                                            child: Container(
+                                                width: 88,
+                                                height: double.infinity,
+                                                child: Align(
+                                                    alignment: Alignment.center,
+                                                    child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 2),
+                                                        child: Text('INTERNET',
+                                                            style: TextStyle(
+                                                                color: _selectedIndex ==
+                                                                        0
+                                                                    ? colorAccent
+                                                                    : colorPrimary_light,
+                                                                fontSize:
+                                                                    14)))))),
+                                        Tab(
+                                            child: Container(
+                                                width: 88,
+                                                height: double.infinity,
+                                                child: Align(
+                                                    alignment: Alignment.center,
+                                                    child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(top: 2.0),
+                                                        child: Text(
+                                                          'CREDIT',
+                                                          style: TextStyle(
+                                                              color: _selectedIndex ==
+                                                                      1
+                                                                  ? colorAccent
+                                                                  : colorPrimary_light,
+                                                              fontSize: 14),
+                                                        ))))),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                body: TabBarView(
+                                    physics: NeverScrollableScrollPhysics(),
+                                    controller: _controller,
+                                    children: [
+                                      FlexyInternetCredit('internet', onChange),
+                                      FlexyInternetCredit('credit', onChange)
+                                    ]),
+                              ),
+                            ),
+                          )),
+                    );
+                  });
+                }).whenComplete(() async {
+              await Future.delayed(Duration(milliseconds: 500));
+              _controller.index = 0;
+            });
+          },
+          child: Icon(Icons.add, size: 32),
+          backgroundColor: Colors.redAccent,
+        )));
+  }
 }
