@@ -19,7 +19,7 @@ class Djezzy extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
-        '/': (context) => DjezzyLoading(),
+        '/': (context) => DjezzyProfile(),
         DjezzyLoading.tag: (context) => DjezzyLoading(),
         DjezzyHome.tag: (context) => DjezzyHome(),
         DjezzyDashboard.tag: (context) => DjezzyDashboard(),
