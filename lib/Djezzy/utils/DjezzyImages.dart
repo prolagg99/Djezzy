@@ -8,6 +8,8 @@ const ic_world2 = "images/world2.png";
 const ic_offercall = "images/offercall.png";
 const ic_offermsg = "images/offermessage.png";
 
+const ic_night = "images/moon_2.png";
+
 const logo_djezzy = "images/Logo_Djezzy.png";
 const logo_djezzy2 = "images/Logo_Djezzy2.png";
 const logo_djezzy3 = "images/Logo_Djezzy3.png";

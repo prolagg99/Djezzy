@@ -13,70 +13,154 @@ class _DjezzyProfileState extends State<DjezzyProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: appBar(),
-        body: ClipPath(
-            clipper: MyClipper(),
-            child: Container(
-              width: double.infinity,
-              height: 210,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [colorAccent2, colorAccent]),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(42, 58, 42, 0),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      // crossAxisAlignment: CrossAxisAlignment.center,
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          height: 76,
-                          width: 76,
-                          decoration: BoxDecoration(
-                              color: Colors.white10,
-                              border:
-                                  Border.all(color: Colors.white, width: 0.5),
-                              borderRadius: BorderRadius.circular(40)),
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.white,
-                            size: 40,
+        body: Column(
+          children: <Widget>[
+            ClipPath(
+              clipper: MyClipper(),
+              child: Container(
+                width: double.infinity,
+                height: 206,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [colorAccent2, colorAccent]),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(42, 58, 42, 0),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        // crossAxisAlignment: CrossAxisAlignment.center,
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(                              
+                            height: 78,
+                            width: 78,
+                            decoration: BoxDecoration(
+                                color: Colors.white10,
+                                border:
+                                    Border.all(color: Colors.white, width: 0.5),
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Icon(
+                              Icons.person,
+                              color: Colors.white,
+                              size: 40,
+                            ),
                           ),
-                        ),
-                        SizedBox(width: 10),
-                        Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text('Paly',
-                                  style: TextStyle(color: Colors.white)),
-                              Text('07 96 12 31 12',
-                                  style: TextStyle(color: Colors.white)),
-                            ])
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
+                          SizedBox(width: 10),
+                          Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text('PLAY',
+                                    style: TextStyle(color: Colors.white)),
+                                Text('07 96 12 31 12',
+                                    style: TextStyle(color: Colors.white)),
+                              ])
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                              height: 36,
+                              width: 36,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(40)),
+                              child: Icon(
+                                Icons.wb_sunny,
+                                size: 18,
+                              ))
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              )),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Container(
+                  height: 38,
+                  // color: Colors.blue,
+                  // height: double.infinity,
+                  child: Column(
+                    children: <Widget>[
+                      Row(children: <Widget>[
+                        // Column(
+                        //   // crossAxisAlignment: CrossAxisAlignment.start,
+                        //   mainAxisAlignment: MainAxisAlignment.start,
+                        //   children: <Widget>[
+                        //     Icon(Icons.radio),
+                        //     // SizedBox(height: 16),
+                        // //     // Container(height: 0.25,color: Colors.transparent)
+                        //   ],
+                        // ),
                         Container(
                           height: 38,
-                          width: 38,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(40)),
-                          child: Icon(Icons.brightness_3),
-                        )
-                      ],
-                    )
-                  ],
+                          // color: Colors.red,
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Icon(Icons.radio))),
+                        Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
+                            child: Container(
+                              // color: Colors.grey,
+                              width: 288,
+                              height: 38,
+                              child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 8),
+                                    child: Text(
+                                    'Mes services', 
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: colorPrimary_light
+                                      )),
+                                  ),
+                                  SizedBox(height: 15),
+                                  Container(height: 0.5,color: Colors.black54,)
+                                ],
+                              ),),
+                          ),
+                        Container(
+                          height: 38,
+                          // color: Colors.red,
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 4),
+                              child: Icon(Icons.keyboard_arrow_down,size: 14,),
+                            ))),
+
+                        // Column(
+                        //   crossAxisAlignment: CrossAxisAlignment.start,
+                        //   children: <Widget>[
+                        //     Padding(
+                        //       padding: const EdgeInsets.only(left: 8),
+                        //       child: Text('Mes Services'),
+                        //     ),
+                        //     SizedBox(height: 16),
+                        //     Container(height: 0.25,width: 292,color: Colors.black)
+                        //   ],
+                        // ),
+                        // Column(
+                        //   children: <Widget>[
+                        //     Icon(Icons.keyboard_arrow_down,size: 14,),
+                        //   ],
+                        // ),
+                      ],),
+                      // SizedBox(height: 10),
+                    ],
+                  ),
                 ),
-              ),
-            )));
+              )
+        ],));
   }
 }
 
