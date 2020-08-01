@@ -1,6 +1,4 @@
-import 'package:djezzy/Djezzy/screen/DjezzyEmergency.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyFlexy.dart';
-import 'package:djezzy/Djezzy/screen/DjezzyPrimary.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyWidget.dart';
 import 'package:flutter/material.dart';
@@ -22,88 +20,82 @@ class _DjezzyProfileState extends State<DjezzyProfile> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         appBar: appBar(),
-        body: SingleChildScrollView(
-            child: Column(
-            children: <Widget>[
-              ClipPath(
-                clipBehavior: Clip.hardEdge,
-                clipper: MyCustomClipper(),
-                child: Material(
-                  child: Container(
-                  width: double.infinity,
-                  height: 206,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [colorAccent2, colorAccent]),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(42, 54, 42, 0),
-                    child: Column(
+        body: Column(
+        children: <Widget>[
+          ClipPath(
+            clipper: MyClipper(),
+            child: Container(
+              width: double.infinity,
+              height: 206,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [colorAccent2, colorAccent]),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(42, 54, 42, 0),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      // mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Row(
-                          // crossAxisAlignment: CrossAxisAlignment.center,
-                          // mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(                              
-                              height: 78,
-                              width: 78,
-                              decoration: BoxDecoration(
-                                  color: Colors.white10,
-                                  border:
-                                      Border.all(color: Colors.white, width: 0.5),
-                                  borderRadius: BorderRadius.circular(40)),
-                              child: Icon(
-                                Icons.person,
-                                color: Colors.white,
-                                size: 40,
+                        Container(                              
+                          height: 78,
+                          width: 78,
+                          decoration: BoxDecoration(
+                              color: Colors.white10,
+                              border:
+                                  Border.all(color: Colors.white, width: 0.5),
+                              borderRadius: BorderRadius.circular(40)),
+                          child: Icon(
+                            Icons.person,
+                            color: Colors.white,
+                            size: 40,
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              // SizedBox(height: 4),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical:4),
+                                child: Text('PLAY',
+                                    style: TextStyle(color: Colors.white)),
                               ),
-                            ),
-                            SizedBox(width: 10),
-                            Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  // SizedBox(height: 4),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(vertical:4),
-                                    child: Text('PLAY',
-                                        style: TextStyle(color: Colors.white)),
-                                  ),
-                                  // SizedBox(height: 4),
-                                  Text('07 96 12 31 12',
-                                      style: TextStyle(color: Colors.white)),
-                                ])
-                          ],
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                                height: 36,
-                                width: 36,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(40)),
-                                child: Icon(
-                                  Icons.wb_sunny,
-                                  size: 18,
-                                ))
-                          ],
-                        )
+                              // SizedBox(height: 4),
+                              Text('07 96 12 31 12',
+                                  style: TextStyle(color: Colors.white)),
+                            ])
                       ],
                     ),
-                  ),
-                )
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                            height: 36,
+                            width: 36,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Icon(
+                              Icons.wb_sunny,
+                              size: 18,
+                            ))
+                      ],
+                    )
+                  ],
                 ),
               ),
-              SizedBox(height: 20),
+            )),
+          SizedBox(height: 20),
             GestureDetector(
               onTap: (){
                     setState(() {
@@ -224,10 +216,7 @@ class _DjezzyProfileState extends State<DjezzyProfile> {
                     setState(() {
                       if(indexTwo != 2)
                         indexTwo = 2;
-                      else if(indexTwo == 2){
-                        indexTwo = 0;
-                        indexTwoChildren = 0;
-                      } 
+                      else if(indexTwo == 2) indexTwo = 0;
                       print(indexTwo);
                     });
                   },
@@ -282,279 +271,264 @@ class _DjezzyProfileState extends State<DjezzyProfile> {
             ),
             // the seconde section -------------------------------------------------------------
             indexTwo == 2 ?
-            GestureDetector(
-              onTap: (){
-                setState(() {
-                    launchScreen(context, DjezzyEmergency.tag);
-                });
-              },
-                child: Container(
-                color: Colors.blueGrey,
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(38,0,18,16),
-                      child: Container(
-                        height: 38,
-                        color: Colors.transparent,
-                        child: Column(
-                          children: <Widget>[
-                            Row(children: <Widget>[
-                              Container(
-                                height: 38,
-                                // color: Colors.red,
-                                child: Align(
-                                  alignment: Alignment.topCenter,
-                                  child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
-                              Container(
-                                // color: Colors.grey,
-                                width: 268,
-                                height: 38,
-                                child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
-                                      child: Text(
-                                      'Numéros d\'urgence', 
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        color: colorPrimary_light
-                                        )),
-                                    ),
-                                    SizedBox(height: 14),
-                                    Container(height: 0.5,color: Colors.black54,)
-                                  ],
-                                ),),
-                              Container(
-                                height: 38,
-                                // color: Colors.red,
-                                child: Align(
-                                  alignment: Alignment.topCenter,
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 4),
-                                    child: Icon(Icons.keyboard_arrow_right,size: 14,),
-                                  ))),
-                            ],),
-                          ],
-                        ),
-                      ),
-                    ),
-                  
-                GestureDetector(
-                  onTap: (){
-                        setState(() {
-                          if(indexTwoChildren != 4)
-                            indexTwoChildren = 4;
-                          else if(indexTwoChildren == 4) indexTwoChildren = 0;
-                          print(indexTwoChildren);
-                        });
-                      },
-                    child: Padding(
-                    padding: const EdgeInsets.fromLTRB(38,0,18,16),
-                    child: Container(
-                      height: 38,
-                      color: Colors.transparent,
-                      child: Column(
-                        children: <Widget>[
-                          Row(children: <Widget>[
-                            Container(
-                              height: 38,
-                              // color: Colors.red,
-                              child: Align(
-                                alignment: Alignment.topCenter,
-                                child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
-                            Container(
-                              // color: Colors.grey,
-                              width: 268,
-                              height: 38,
-                              child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
-                                    child: Text(
-                                    'Education nationale', 
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      color: colorPrimary_light
-                                      )),
-                                  ),
-                                  SizedBox(height: 14),
-                                  Container(height: 0.5,color: Colors.black54,)
-                                ],
-                              ),),
-                            Container(
-                              height: 38,
-                              // color: Colors.red,
-                              child: Align(
-                                alignment: Alignment.topCenter,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 4),
-                                  child: Icon(indexTwoChildren != 4 ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,size: 14,),
-                                ))),
-                          ],),
-                        ],
-                      ),
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(38,0,18,16),
+                  child: Container(
+                    height: 38,
+                    color: Colors.transparent,
+                    child: Column(
+                      children: <Widget>[
+                        Row(children: <Widget>[
+                          Container(
+                            height: 38,
+                            // color: Colors.red,
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
+                          Container(
+                            // color: Colors.grey,
+                            width: 268,
+                            height: 38,
+                            child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
+                                  child: Text(
+                                  'Numéros d\'urgence', 
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: colorPrimary_light
+                                    )),
+                                ),
+                                SizedBox(height: 14),
+                                Container(height: 0.5,color: Colors.black54,)
+                              ],
+                            ),),
+                          Container(
+                            height: 38,
+                            // color: Colors.red,
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 4),
+                                child: Icon(Icons.keyboard_arrow_right,size: 14,),
+                              ))),
+                        ],),
+                      ],
                     ),
                   ),
                 ),
-                ]),
+              
+            GestureDetector(
+              onTap: (){
+                    setState(() {
+                      if(indexTwoChildren != 4)
+                        indexTwoChildren = 4;
+                      else if(indexTwoChildren == 4) indexTwoChildren = 0;
+                      print(indexTwoChildren);
+                    });
+                  },
+                child: Padding(
+                padding: const EdgeInsets.fromLTRB(38,0,18,16),
+                child: Container(
+                  height: 38,
+                  color: Colors.transparent,
+                  child: Column(
+                    children: <Widget>[
+                      Row(children: <Widget>[
+                        Container(
+                          height: 38,
+                          // color: Colors.red,
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
+                        Container(
+                          // color: Colors.grey,
+                          width: 268,
+                          height: 38,
+                          child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
+                                child: Text(
+                                'Education nationale', 
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: colorPrimary_light
+                                  )),
+                              ),
+                              SizedBox(height: 14),
+                              Container(height: 0.5,color: Colors.black54,)
+                            ],
+                          ),),
+                        Container(
+                          height: 38,
+                          // color: Colors.red,
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 4),
+                              child: Icon(indexTwoChildren == 4 ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,size: 14,),
+                            ))),
+                      ],),
+                    ],
+                  ),
+                ),
               ),
-            ) : Container(),
+            ),
+            ]) : Container(),
             // the seconde section child ----------------------------------------------------------------------------
             indexTwoChildren == 4 ?
-            GestureDetector(
-              onTap: (){
-                launchScreen(context, DjezzyPrimary.tag);
-              },
-                child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(58,0,18,16),
-                    child: Container(
-                      height: 38,
-                      color: Colors.transparent,
-                      child: Column(
-                        children: <Widget>[
-                          Row(children: <Widget>[
-                            Container(
-                              height: 38,
-                              // color: Colors.red,
-                              child: Align(
-                                alignment: Alignment.topCenter,
-                                child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
-                            Container(
-                              // color: Colors.grey,
-                              width: 248,
-                              height: 38,
-                              child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
-                                    child: Text(
-                                    'Enregistrement primaire', 
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      color: colorPrimary_light
-                                      )),
-                                  ),
-                                  SizedBox(height: 14),
-                                  Container(height: 0.5,color: Colors.black54,)
-                                ],
-                              ),),
-                            Container(
-                              height: 38,
-                              // color: Colors.red,
-                              child: Align(
-                                alignment: Alignment.topCenter,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 4),
-                                  child: Icon(Icons.keyboard_arrow_right,size: 14,),
-                                ))),
-                          ],),
-                        ],
-                      ),
+            Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(58,0,18,16),
+                  child: Container(
+                    height: 38,
+                    color: Colors.transparent,
+                    child: Column(
+                      children: <Widget>[
+                        Row(children: <Widget>[
+                          Container(
+                            height: 38,
+                            // color: Colors.red,
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
+                          Container(
+                            // color: Colors.grey,
+                            width: 248,
+                            height: 38,
+                            child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
+                                  child: Text(
+                                  'Enregistrement primaire', 
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: colorPrimary_light
+                                    )),
+                                ),
+                                SizedBox(height: 14),
+                                Container(height: 0.5,color: Colors.black54,)
+                              ],
+                            ),),
+                          Container(
+                            height: 38,
+                            // color: Colors.red,
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 4),
+                                child: Icon(Icons.keyboard_arrow_right,size: 14,),
+                              ))),
+                        ],),
+                      ],
                     ),
                   ),
-                Padding(
-                padding: const EdgeInsets.fromLTRB(58,0,18,16),
-                child: Container(
-                  height: 38,
-                  color: Colors.transparent,
-                  child: Column(
-                    children: <Widget>[
-                      Row(children: <Widget>[
-                        Container(
-                          height: 38,
-                          // color: Colors.red,
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
-                        Container(
-                          // color: Colors.grey,
-                          width: 248,
-                          height: 38,
-                          child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
-                                child: Text(
-                                'Enregistrement moyen', 
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: colorPrimary_light
-                                  )),
-                              ),
-                              SizedBox(height: 14),
-                              Container(height: 0.5,color: Colors.black54,)
-                            ],
-                          ),),
-                        Container(
-                          height: 38,
-                          // color: Colors.red,
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 4),
-                              child: Icon(Icons.keyboard_arrow_right,size: 14,),
-                            ))),
-                      ],),
-                    ],
-                  ),
                 ),
-              ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(58,0,18,16),
-                child: Container(
-                  height: 38,
-                  color: Colors.transparent,
-                  child: Column(
-                    children: <Widget>[
-                      Row(children: <Widget>[
-                        Container(
-                          height: 38,
-                          // color: Colors.red,
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
-                        Container(
-                          // color: Colors.grey,
-                          width: 248,
-                          height: 38,
-                          child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
-                                child: Text(
-                                'Enregistrement secondaire', 
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: colorPrimary_light
-                                  )),
-                              ),
-                              SizedBox(height: 14),
-                              Container(height: 0.5,color: Colors.black54,)
-                            ],
-                          ),),
-                        Container(
-                          height: 38,
-                          // color: Colors.red,
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 4),
-                              child: Icon(Icons.keyboard_arrow_right,size: 14,),
-                            ))),
-                      ],),
-                    ],
-                  ),
+              padding: const EdgeInsets.fromLTRB(58,0,18,16),
+              child: Container(
+                height: 38,
+                color: Colors.transparent,
+                child: Column(
+                  children: <Widget>[
+                    Row(children: <Widget>[
+                      Container(
+                        height: 38,
+                        // color: Colors.red,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
+                      Container(
+                        // color: Colors.grey,
+                        width: 248,
+                        height: 38,
+                        child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
+                              child: Text(
+                              'Enregistrement moyen', 
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: colorPrimary_light
+                                )),
+                            ),
+                            SizedBox(height: 14),
+                            Container(height: 0.5,color: Colors.black54,)
+                          ],
+                        ),),
+                      Container(
+                        height: 38,
+                        // color: Colors.red,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4),
+                            child: Icon(Icons.keyboard_arrow_right,size: 14,),
+                          ))),
+                    ],),
+                  ],
                 ),
-              ), ],
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(58,0,18,16),
+              child: Container(
+                height: 38,
+                color: Colors.transparent,
+                child: Column(
+                  children: <Widget>[
+                    Row(children: <Widget>[
+                      Container(
+                        height: 38,
+                        // color: Colors.red,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
+                      Container(
+                        // color: Colors.grey,
+                        width: 248,
+                        height: 38,
+                        child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
+                              child: Text(
+                              'Enregistrement secondaire', 
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: colorPrimary_light
+                                )),
+                            ),
+                            SizedBox(height: 14),
+                            Container(height: 0.5,color: Colors.black54,)
+                          ],
+                        ),),
+                      Container(
+                        height: 38,
+                        // color: Colors.red,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4),
+                            child: Icon(Icons.keyboard_arrow_right,size: 14,),
+                          ))),
+                    ],),
+                  ],
+                ),
+              ),
+            ), ],
             ) : Container(),
             // --------------------------------------------------------------------------------------------------
             GestureDetector(
@@ -808,15 +782,11 @@ class _DjezzyProfileState extends State<DjezzyProfile> {
                 ),
               ),
             ),
-            ],
-          ),
-        ),
-      ),
-    );
+          ],));
   }
 }
 
-class MyCustomClipper extends CustomClipper<Path> {
+class MyClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
@@ -841,6 +811,7 @@ class MyCustomClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return null;
+  }
 }
-

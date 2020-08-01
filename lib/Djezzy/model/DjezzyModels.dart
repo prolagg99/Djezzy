@@ -42,3 +42,7 @@ class DjezzyFlexyCard {
   var date = "";
   var time = "";
 }
+
+class DjezzyEmergecyCall {
+  var title = "";
+}

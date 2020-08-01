@@ -242,3 +242,31 @@ List<DjezzyFlexyCard> getFlexy() {
 
   return list;
 }
+
+List<DjezzyEmergecyCall> getEmergecy() {
+  List<DjezzyEmergecyCall> list = List<DjezzyEmergecyCall>();
+  DjezzyEmergecyCall model1 = DjezzyEmergecyCall();
+  model1.title = 'Cellule d\'information sur le Coronavirus';
+  DjezzyEmergecyCall model2 = DjezzyEmergecyCall();
+  model2.title = 'Pompiers/Protection civile';
+  DjezzyEmergecyCall model3 = DjezzyEmergecyCall();
+  model3.title = 'Police';
+  DjezzyEmergecyCall model4 = DjezzyEmergecyCall();
+  model4.title = 'Gendarmerie nationale';
+  DjezzyEmergecyCall model5 = DjezzyEmergecyCall();
+  model5.title = 'Assistance Médicale Téléphonique';
+  DjezzyEmergecyCall model6 = DjezzyEmergecyCall();
+  model6.title = 'Assistance et Détresse Jeunese';
+  DjezzyEmergecyCall model7 = DjezzyEmergecyCall();
+  model7.title = 'Enfance maltraitée';
+
+  list.add(model1);
+  list.add(model2);
+  list.add(model3);
+  list.add(model4);
+  list.add(model5);
+  list.add(model6);
+  list.add(model7);
+
+  return list;
+}
