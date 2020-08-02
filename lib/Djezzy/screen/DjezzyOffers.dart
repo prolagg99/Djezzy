@@ -47,23 +47,29 @@ class _DjezzyOffersState extends State<DjezzyOffers> {
     );
     /* card of imtiyaz ************************************************* */
     final imtiyazAll = Container(
-        child: ListView.builder(
+        child: ScrollConfiguration(
+          behavior: MyBehavior(),
+          child: ListView.builder(
             scrollDirection: Axis.vertical,
             itemCount: mListings2.length,
             shrinkWrap: true,
             itemBuilder: (context, index) {
               return Imtiyaz(
                   mListings2[index], index, mListings2.last, selectedPos);
-            }));
+            }),
+        ));
     /* cards of imtiyaz ************************************************* */
     final roamingAll = Container(
-        child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: mListings2.length,
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              return Roaming(mListings3[index], mListings3.last, selectedPos);
-            }));
+        child: ScrollConfiguration(
+          behavior: MyBehavior(),
+          child: ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemCount: mListings2.length,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return Roaming(mListings3[index], mListings3.last, selectedPos);
+          }),
+        ));
 
     changeStatusColor(Colors.black);
     return Scaffold(
@@ -159,16 +165,19 @@ class _DjezzyOffersState extends State<DjezzyOffers> {
                                       : colorPrimary_light)))),
                 ]),
           ),
-          SingleChildScrollView(
-              physics: ScrollPhysics(),
-              child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  child: Container(
-                      height: 458,
-                      child: selectedPos == 1
-                          ? internetAll
-                          : selectedPos == 2 ? imtiyazAll : roamingAll))),
+          ScrollConfiguration(
+          behavior: MyBehavior(),
+            child: SingleChildScrollView(
+            physics: ScrollPhysics(),
+            child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                child: Container(
+                    height: 458,
+                    child: selectedPos == 1
+                        ? internetAll
+                        : selectedPos == 2 ? imtiyazAll : roamingAll))),
+          ),
         ])));
   }
 }

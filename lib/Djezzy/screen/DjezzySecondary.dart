@@ -4,6 +4,7 @@ import 'package:djezzy/Djezzy/utils/DjezzyDataGenerator.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyImages.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyConstant.dart';
+import 'package:djezzy/Djezzy/utils/DjezzyWidget.dart';
 import 'package:flutter/material.dart';
 
 class DjezzySecondary extends StatefulWidget {
@@ -17,7 +18,6 @@ class _DjezzySecondaryState extends State<DjezzySecondary> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     mListings = getSecondaryLevel();
   }
@@ -52,13 +52,16 @@ class _DjezzySecondaryState extends State<DjezzySecondary> {
         body: Padding(
           padding: const EdgeInsets.only(top: 2,bottom: 2),
           child: Container(
-            child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: mListings.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return PrimaryCard(mListings[index], index, mListings.first, mListings.last);
-                }),
+            child: ScrollConfiguration(
+            behavior: MyBehavior(),
+              child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: mListings.length,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return PrimaryCard(mListings[index], index, mListings.first, mListings.last);
+              }),
+            ),
           ),
         )
         ),);

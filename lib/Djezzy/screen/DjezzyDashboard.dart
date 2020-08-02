@@ -3,7 +3,6 @@ import 'package:djezzy/Djezzy/utils/DjezzyImages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
-
 import 'package:djezzy/Djezzy/screen/DjezzyFlexy.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyHome.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyOffers.dart';

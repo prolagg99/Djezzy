@@ -17,7 +17,6 @@ class _DjezzyEmergencyState extends State<DjezzyEmergency> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     mListings = getEmergecy();
   }
@@ -54,14 +53,17 @@ class _DjezzyEmergencyState extends State<DjezzyEmergency> {
           child: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: mListings.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return EmergecyCard(
-                      mListings[index], index, mListings.first, mListings.last);
-                }),
+            child: ScrollConfiguration(
+              behavior: MyBehavior(),
+              child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: mListings.length,
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return EmergecyCard(
+                    mListings[index], index, mListings.first, mListings.last);
+              }),
+            ),
           ),
         )
         ),);

@@ -43,6 +43,14 @@ import 'package:flutter/material.dart';
 //   }
 // }
 
+class MyBehavior extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
+    return child;
+  }
+}
+
 AppBar appBar() {
   return AppBar(
     automaticallyImplyLeading: false,
@@ -538,10 +546,7 @@ Widget leftContainerShowBottomSheet() {
       width: 15,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(0),
-              bottomLeft: Radius.circular(0),
-              bottomRight: Radius.circular(0)),
+              topLeft: Radius.circular(20)),
           gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
@@ -551,11 +556,7 @@ Widget leftContainerShowBottomSheet() {
 BoxDecoration boxDecoration() {
   return new BoxDecoration(
       color: colorPrimary,
-      borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(6),
-          topRight: Radius.circular(6),
-          bottomLeft: Radius.circular(6),
-          bottomRight: Radius.circular(6)),
+      borderRadius: BorderRadius.circular(6),
       boxShadow: [
         BoxShadow(
             color: Colors.black.withOpacity(0.2),
@@ -592,9 +593,7 @@ Widget topContainerOfCard(DjezzyInternet index, DjezzyInternet pos) {
         color: index == pos ? colorPrimary_light : colorAccent2,
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
-            bottomLeft: Radius.circular(0),
-            bottomRight: Radius.circular(0))),
+            topRight: Radius.circular(10))),
   );
 }
 
@@ -605,9 +604,7 @@ Widget leftContainerOfCard() {
     decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(6),
-            topRight: Radius.circular(0),
-            bottomLeft: Radius.circular(6),
-            bottomRight: Radius.circular(0)),
+            bottomLeft: Radius.circular(6)),
         gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
@@ -712,13 +709,7 @@ Tab tab(_selectedIndex, index, tabName) {
           color:
               _selectedIndex == index ? colorPrimary_light : Colors.redAccent),
       color: Colors.white,
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(18.0),
-        topRight: const Radius.circular(18.0),
-        bottomLeft: Radius.circular(18.0),
-        bottomRight: const Radius.circular(18.0),
-      ),
-    ),
+      borderRadius: BorderRadius.circular(18.0)),
     child: Align(
       alignment: Alignment.center,
       child: Text(
