@@ -6,20 +6,20 @@ import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyConstant.dart';
 import 'package:flutter/material.dart';
 
-class DjezzyPrimary extends StatefulWidget {
-  static String tag = '/DjezzyPrimary';
+class DjezzyMiddle extends StatefulWidget {
+  static String tag = '/DjezzyMiddle';
   @override
-  _DjezzyPrimaryState createState() => _DjezzyPrimaryState();
+  _DjezzyMiddleState createState() => _DjezzyMiddleState();
 }
 
-class _DjezzyPrimaryState extends State<DjezzyPrimary> {
-  List<DjezzyPrimarySchool> mListings;
+class _DjezzyMiddleState extends State<DjezzyMiddle> {
+  List<DjezzyMiddleSchool> mListings;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    mListings = getPrimaryLevel();
+    mListings = getMiddleLevel();
   }
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _DjezzyPrimaryState extends State<DjezzyPrimary> {
           ),
           titleSpacing: -10,
           title: Text(
-            'Enseignement primaire',
+            'Enseignement moyen',
             style: TextStyle(
               color: colorPrimary_light,
               fontFamily: fontRegular,
@@ -57,7 +57,7 @@ class _DjezzyPrimaryState extends State<DjezzyPrimary> {
                 itemCount: mListings.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  return PrimaryCard(mListings[index], index, mListings.first, mListings.last);
+                  return MiddleCard(mListings[index], index, mListings.first, mListings.last);
                 }),
           ),
         )
@@ -65,13 +65,13 @@ class _DjezzyPrimaryState extends State<DjezzyPrimary> {
   }
 }
 
-class PrimaryCard extends StatelessWidget {
-  DjezzyPrimarySchool model;
+class MiddleCard extends StatelessWidget {
+  DjezzyMiddleSchool model;
   int index;
-  DjezzyPrimarySchool first;
-  DjezzyPrimarySchool last;
-  PrimaryCard(
-      DjezzyPrimarySchool model, int index, DjezzyPrimarySchool first, DjezzyPrimarySchool last) {
+  DjezzyMiddleSchool first;
+  DjezzyMiddleSchool last;
+  MiddleCard(
+      DjezzyMiddleSchool model, int index, DjezzyMiddleSchool first, DjezzyMiddleSchool last) {
     this.model = model;
     this.index = index;
     this.first = first;
@@ -88,7 +88,7 @@ class PrimaryCard extends StatelessWidget {
           new Container(
             height: 120,
             decoration: new BoxDecoration(
-              image: new DecorationImage(image: new AssetImage(img_primary), fit: BoxFit.cover,),
+              image: new DecorationImage(image: new AssetImage(img_middle), fit: BoxFit.cover,),
               borderRadius: BorderRadius.circular(6)
             ),
           ),

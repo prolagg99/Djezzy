@@ -8,6 +8,8 @@ import 'package:djezzy/Djezzy/screen/DjezzyOffersHistory.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyPrimary.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyProfile.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyQuiz.dart';
+import 'package:djezzy/Djezzy/screen/DjezzyMiddle.dart';
+import 'package:djezzy/Djezzy/screen/DjezzySecondary.dart';
 
 import 'package:flutter/material.dart';
 
@@ -32,6 +34,8 @@ class Djezzy extends StatelessWidget {
         DjezzyOffersHistory.tag: (context) => DjezzyOffersHistory(),
         DjezzyEmergency.tag: (context) => DjezzyEmergency(),
         DjezzyPrimary.tag: (context) => DjezzyPrimary(),
+        DjezzyMiddle.tag: (context) => DjezzyMiddle(),
+        DjezzySecondary.tag: (context) => DjezzySecondary(),
       },
     );
   }

@@ -1,6 +1,8 @@
 import 'package:djezzy/Djezzy/screen/DjezzyEmergency.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyFlexy.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyPrimary.dart';
+import 'package:djezzy/Djezzy/screen/DjezzyMiddle.dart';
+import 'package:djezzy/Djezzy/screen/DjezzySecondary.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyWidget.dart';
 import 'package:flutter/material.dart';
@@ -404,158 +406,168 @@ class _DjezzyProfileState extends State<DjezzyProfile> {
             ) : Container(),
             // the seconde section child ----------------------------------------------------------------------------
             indexTwoChildren == 4 ?
-            GestureDetector(
+            Column(
+            children: <Widget>[
+              GestureDetector(
               onTap: (){
                 launchScreen(context, DjezzyPrimary.tag);
               },
-                child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(58,0,18,16),
-                    child: Container(
-                      height: 38,
-                      color: Colors.transparent,
-                      child: Column(
-                        children: <Widget>[
-                          Row(children: <Widget>[
-                            Container(
-                              height: 38,
-                              // color: Colors.red,
-                              child: Align(
-                                alignment: Alignment.topCenter,
-                                child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
-                            Container(
-                              // color: Colors.grey,
-                              width: 248,
-                              height: 38,
-                              child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
-                                    child: Text(
-                                    'Enregistrement primaire', 
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      color: colorPrimary_light
-                                      )),
-                                  ),
-                                  SizedBox(height: 14),
-                                  Container(height: 0.5,color: Colors.black54,)
-                                ],
-                              ),),
-                            Container(
-                              height: 38,
-                              // color: Colors.red,
-                              child: Align(
-                                alignment: Alignment.topCenter,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 4),
-                                  child: Icon(Icons.keyboard_arrow_right,size: 14,),
-                                ))),
-                          ],),
-                        ],
-                      ),
+              child: Padding(
+                  padding: const EdgeInsets.fromLTRB(58,0,18,16),
+                  child: Container(
+                    height: 38,
+                    color: Colors.transparent,
+                    child: Column(
+                      children: <Widget>[
+                        Row(children: <Widget>[
+                          Container(
+                            height: 38,
+                            // color: Colors.red,
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
+                          Container(
+                            // color: Colors.grey,
+                            width: 248,
+                            height: 38,
+                            child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
+                                  child: Text(
+                                  'Enregistrement primaire', 
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: colorPrimary_light
+                                    )),
+                                ),
+                                SizedBox(height: 14),
+                                Container(height: 0.5,color: Colors.black54,)
+                              ],
+                            ),),
+                          Container(
+                            height: 38,
+                            // color: Colors.red,
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 4),
+                                child: Icon(Icons.keyboard_arrow_right,size: 14,),
+                              ))),
+                        ],),
+                      ],
                     ),
                   ),
-                Padding(
-                padding: const EdgeInsets.fromLTRB(58,0,18,16),
-                child: Container(
-                  height: 38,
-                  color: Colors.transparent,
-                  child: Column(
-                    children: <Widget>[
-                      Row(children: <Widget>[
-                        Container(
-                          height: 38,
-                          // color: Colors.red,
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
-                        Container(
-                          // color: Colors.grey,
-                          width: 248,
-                          height: 38,
-                          child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
-                                child: Text(
-                                'Enregistrement moyen', 
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: colorPrimary_light
-                                  )),
-                              ),
-                              SizedBox(height: 14),
-                              Container(height: 0.5,color: Colors.black54,)
-                            ],
-                          ),),
-                        Container(
-                          height: 38,
-                          // color: Colors.red,
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 4),
-                              child: Icon(Icons.keyboard_arrow_right,size: 14,),
-                            ))),
-                      ],),
-                    ],
-                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(58,0,18,16),
-                child: Container(
-                  height: 38,
-                  color: Colors.transparent,
-                  child: Column(
-                    children: <Widget>[
-                      Row(children: <Widget>[
-                        Container(
-                          height: 38,
-                          // color: Colors.red,
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
-                        Container(
-                          // color: Colors.grey,
-                          width: 248,
-                          height: 38,
-                          child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
-                                child: Text(
-                                'Enregistrement secondaire', 
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: colorPrimary_light
-                                  )),
-                              ),
-                              SizedBox(height: 14),
-                              Container(height: 0.5,color: Colors.black54,)
-                            ],
-                          ),),
-                        Container(
-                          height: 38,
-                          // color: Colors.red,
-                          child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 4),
-                              child: Icon(Icons.keyboard_arrow_right,size: 14,),
-                            ))),
-                      ],),
-                    ],
-                  ),
+            GestureDetector(
+              onTap: (){
+                launchScreen(context, DjezzyMiddle.tag);
+              },
+              child: Padding(
+              padding: const EdgeInsets.fromLTRB(58,0,18,16),
+              child: Container(
+                height: 38,
+                color: Colors.transparent,
+                child: Column(
+                  children: <Widget>[
+                    Row(children: <Widget>[
+                      Container(
+                        height: 38,
+                        // color: Colors.red,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
+                      Container(
+                        // color: Colors.grey,
+                        width: 248,
+                        height: 38,
+                        child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
+                              child: Text(
+                              'Enregistrement moyen', 
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: colorPrimary_light
+                                )),
+                            ),
+                            SizedBox(height: 14),
+                            Container(height: 0.5,color: Colors.black54,)
+                          ],
+                        ),),
+                      Container(
+                        height: 38,
+                        // color: Colors.red,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4),
+                            child: Icon(Icons.keyboard_arrow_right,size: 14,),
+                          ))),
+                    ],),
+                  ],
                 ),
-              ), ],
               ),
-            ) : Container(),
+                ),
+            ),
+            GestureDetector(
+              onTap: (){
+                launchScreen(context, DjezzySecondary.tag);
+              },
+              child: Padding(
+              padding: const EdgeInsets.fromLTRB(58,0,18,16),
+              child: Container(
+                height: 38,
+                color: Colors.transparent,
+                child: Column(
+                  children: <Widget>[
+                    Row(children: <Widget>[
+                      Container(
+                        height: 38,
+                        // color: Colors.red,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Icon(Icons.phone_iphone,size: 22, color: colorAccent,))),
+                      Container(
+                        // color: Colors.grey,
+                        width: 248,
+                        height: 38,
+                        child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 4,horizontal: 10),
+                              child: Text(
+                              'Enregistrement secondaire', 
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: colorPrimary_light
+                                )),
+                            ),
+                            SizedBox(height: 14),
+                            Container(height: 0.5,color: Colors.black54,)
+                          ],
+                        ),),
+                      Container(
+                        height: 38,
+                        // color: Colors.red,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4),
+                            child: Icon(Icons.keyboard_arrow_right,size: 14,),
+                          ))),
+                    ],),
+                  ],
+                ),
+              ),
+                ),
+            ), ],
+              ) : Container(),
             // --------------------------------------------------------------------------------------------------
             GestureDetector(
               onTap: (){

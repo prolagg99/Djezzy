@@ -270,3 +270,92 @@ List<DjezzyEmergecyCall> getEmergecy() {
 
   return list;
 }
+
+
+List<DjezzyPrimarySchool> getPrimaryLevel() {
+  List<DjezzyPrimarySchool> list = List<DjezzyPrimarySchool>();
+  DjezzyPrimarySchool model1 = DjezzyPrimarySchool();
+  model1.level = 'السنة الخامسة';
+  DjezzyPrimarySchool model2 = DjezzyPrimarySchool();
+  model2.level = 'السنة الرابعة';
+  DjezzyPrimarySchool model3 = DjezzyPrimarySchool();
+  model3.level = 'السنة الثالثة';
+  DjezzyPrimarySchool model4 = DjezzyPrimarySchool();
+  model4.level = 'السنة الثانية';
+  DjezzyPrimarySchool model5 = DjezzyPrimarySchool();
+  model5.level = 'السنةالأولى';
+
+  list.add(model1);
+  list.add(model2);
+  list.add(model3);
+  list.add(model4);
+  list.add(model5);
+
+  return list;
+}
+
+List<DjezzyMiddleSchool> getMiddleLevel() {
+  List<DjezzyMiddleSchool> list = List<DjezzyMiddleSchool>();
+  DjezzyMiddleSchool model1 = DjezzyMiddleSchool();
+  model1.level = 'السنة الرابعة';
+  DjezzyMiddleSchool model2 = DjezzyMiddleSchool();
+  model2.level = 'السنة الثالثة';
+  DjezzyMiddleSchool model3 = DjezzyMiddleSchool();
+  model3.level = 'السنة الثانية';
+  DjezzyMiddleSchool model4 = DjezzyMiddleSchool();
+  model4.level = 'السنةالأولى';
+
+  list.add(model1);
+  list.add(model2);
+  list.add(model3);
+  list.add(model4);
+
+  return list;
+}
+
+
+List<DjezzySecondarySchool> getSecondaryLevel() {
+  List<DjezzySecondarySchool> list = List<DjezzySecondarySchool>();
+  DjezzySecondarySchool model1 = DjezzySecondarySchool();
+  model1.level = 'السنة الثانية - لغات أجنبية';
+  DjezzySecondarySchool model2 = DjezzySecondarySchool();
+  model2.level = 'السنة الثانية - فلسفة';
+  DjezzySecondarySchool model3 = DjezzySecondarySchool();
+  model3.level = 'السنة الأولى - علوم';
+  DjezzySecondarySchool model4 = DjezzySecondarySchool();
+  model4.level = 'السنة الأولى - آداب';
+  DjezzySecondarySchool model5 = DjezzySecondarySchool();
+  model5.level = 'السنة الثالثة - رياضيات';
+  DjezzySecondarySchool model6 = DjezzySecondarySchool();
+  model6.level = 'السنة الثالثة - علوم تجريبية';
+  DjezzySecondarySchool model7 = DjezzySecondarySchool();
+  model7.level = 'السنة الثالثة - تسيير واقتصاد';
+  DjezzySecondarySchool model8 = DjezzySecondarySchool();
+  model8.level = 'السنة الثالثة - لغات أجنبية';
+  DjezzySecondarySchool model9 = DjezzySecondarySchool();
+  model9.level = 'السنة الثالثة - فلسفة';
+  DjezzySecondarySchool model10 = DjezzySecondarySchool();
+  model10.level = 'السنة الثانية - تقني رياضي';
+  DjezzySecondarySchool model11 = DjezzySecondarySchool();
+  model11.level = 'السنة الثانية - رياضيات';
+  DjezzySecondarySchool model12 = DjezzySecondarySchool();
+  model12.level = 'السنة الثانية - تسيير واقتصاد';
+  DjezzySecondarySchool model13 = DjezzySecondarySchool();
+  model13.level = 'السنة الثانية - علوم تجريبية';
+
+  list.add(model1);
+  list.add(model2);
+  list.add(model3);
+  list.add(model4);
+  list.add(model5);
+  list.add(model6);
+  list.add(model7);
+  list.add(model8);
+  list.add(model9);
+  list.add(model10);
+  list.add(model11);
+  list.add(model12);
+  list.add(model13);
+
+  return list;
+}

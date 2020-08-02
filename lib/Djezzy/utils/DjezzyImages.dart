@@ -36,3 +36,9 @@ const ic_flexy = Icon(Icons.phone_iphone, color: colorPrimary_light);
 const ic_flexy2 = Icon(Icons.phone_iphone, color: colorAccent);
 const ic_profile = Icon(Icons.menu, color: colorPrimary_light);
 const ic_profile2 = Icon(Icons.menu, color: colorAccent);
+
+
+
+const img_primary = "images/primary.jpg";
+const img_middle = "images/middle.jpg";
+const img_secondary = "images/secondary.jpg";

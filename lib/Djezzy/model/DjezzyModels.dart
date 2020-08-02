@@ -46,3 +46,15 @@ class DjezzyFlexyCard {
 class DjezzyEmergecyCall {
   var title = "";
 }
+
+class DjezzyPrimarySchool {
+  var level = "";
+}
+
+class DjezzyMiddleSchool {
+  var level = "";
+}
+
+class DjezzySecondarySchool {
+  var level = "";
+}

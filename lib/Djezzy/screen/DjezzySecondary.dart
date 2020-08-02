@@ -6,20 +6,20 @@ import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyConstant.dart';
 import 'package:flutter/material.dart';
 
-class DjezzyPrimary extends StatefulWidget {
-  static String tag = '/DjezzyPrimary';
+class DjezzySecondary extends StatefulWidget {
+  static String tag = '/DjezzySecondary';
   @override
-  _DjezzyPrimaryState createState() => _DjezzyPrimaryState();
+  _DjezzySecondaryState createState() => _DjezzySecondaryState();
 }
 
-class _DjezzyPrimaryState extends State<DjezzyPrimary> {
-  List<DjezzyPrimarySchool> mListings;
+class _DjezzySecondaryState extends State<DjezzySecondary> {
+  List<DjezzySecondarySchool> mListings;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    mListings = getPrimaryLevel();
+    mListings = getSecondaryLevel();
   }
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _DjezzyPrimaryState extends State<DjezzyPrimary> {
           ),
           titleSpacing: -10,
           title: Text(
-            'Enseignement primaire',
+            'Enseignement secondaire',
             style: TextStyle(
               color: colorPrimary_light,
               fontFamily: fontRegular,
@@ -66,12 +66,12 @@ class _DjezzyPrimaryState extends State<DjezzyPrimary> {
 }
 
 class PrimaryCard extends StatelessWidget {
-  DjezzyPrimarySchool model;
+  DjezzySecondarySchool model;
   int index;
-  DjezzyPrimarySchool first;
-  DjezzyPrimarySchool last;
+  DjezzySecondarySchool first;
+  DjezzySecondarySchool last;
   PrimaryCard(
-      DjezzyPrimarySchool model, int index, DjezzyPrimarySchool first, DjezzyPrimarySchool last) {
+      DjezzySecondarySchool model, int index, DjezzySecondarySchool first, DjezzySecondarySchool last) {
     this.model = model;
     this.index = index;
     this.first = first;
@@ -88,7 +88,7 @@ class PrimaryCard extends StatelessWidget {
           new Container(
             height: 120,
             decoration: new BoxDecoration(
-              image: new DecorationImage(image: new AssetImage(img_primary), fit: BoxFit.cover,),
+              image: new DecorationImage(image: new AssetImage(img_secondary), fit: BoxFit.cover,),
               borderRadius: BorderRadius.circular(6)
             ),
           ),
