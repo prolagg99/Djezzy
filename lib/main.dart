@@ -10,6 +10,7 @@ import 'package:djezzy/Djezzy/screen/DjezzyProfile.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyQuiz.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyMiddle.dart';
 import 'package:djezzy/Djezzy/screen/DjezzySecondary.dart';
+import 'package:djezzy/Djezzy/screen/qibus.dart';
 
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class Djezzy extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
-        '/': (context) => DjezzyLoading(),
+        '/': (context) => QIBusVerification(),
         DjezzyLoading.tag: (context) => DjezzyLoading(),
         DjezzyHome.tag: (context) => DjezzyHome(),
         DjezzyDashboard.tag: (context) => DjezzyDashboard(),
@@ -36,6 +37,8 @@ class Djezzy extends StatelessWidget {
         DjezzyPrimary.tag: (context) => DjezzyPrimary(),
         DjezzyMiddle.tag: (context) => DjezzyMiddle(),
         DjezzySecondary.tag: (context) => DjezzySecondary(),
+        QIBusVerification.tag: (context) => QIBusVerification(),
+
       },
     );
   }

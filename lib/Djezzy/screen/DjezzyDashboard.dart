@@ -29,68 +29,50 @@ class DjezzyDashboardState extends State<DjezzyDashboard> {
   @override
   Widget build(BuildContext context) {
     changeStatusColor(Colors.black);
-    return Scaffold(
-        bottomNavigationBar: Container(
-          height: 50,
-          decoration: BoxDecoration(color: Colors.white, boxShadow: [
-            // BoxShadow(
-            //   color: Colors.grey[100],
-            //   blurRadius: 5,
-            //   spreadRadius: 5,
-            // ),
-          ]),
-          padding: const EdgeInsets.only(left: 0, right: 0),
-          child:
-              // Column(
-              //   children: <Widget>[
-              //     Container(
-              //       color: Colors.black,
-              //       height: 1,
-              //       width: double.infinity,
-              //     ),
-              Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              tabItem(0, ic_home, ic_home2),
-              tabItem(1, ic_offers, ic_offers2),
-              tabItem(2, ic_quiz, ic_quiz2),
-              tabItem(3, ic_flexy, ic_flexy2),
-              tabItem(4, ic_profile, ic_profile2),
+    return DefaultTabController(
+        length: 5,
+        child: new Scaffold(
+          body: TabBarView(
+            children: [
+              DjezzyHome(),
+              DjezzyOffers(),
+              DjezzyQuiz(),
+              DjezzyFlexy(),
+              DjezzyProfile(),
             ],
           ),
-          //   ],
-          // ),
-        ),
-        body: _children[isSelected]);
-  }
-
-  Widget tabItem(var pos, Icon icon, Icon icon2) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          isSelected = pos;
-          DjezzyHome();
-        });
-      },
-      child: Container(
-        width: 72,
-        height: 72,
-        alignment: Alignment.center,
-        // decoration: isSelected == pos
-        //     ? BoxDecoration(shape: BoxShape.circle, color: Colors.grey[100])
-        //     : BoxDecoration(),
-        child: Column(
-          children: <Widget>[
-            isSelected == pos
-                ? Container(height: 0.75, width: 120, color: colorAccent)
-                : Container(height: 0.75, width: 120, color: Colors.black12),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 12),
-              child: isSelected == pos ? icon2 : icon,
+          bottomNavigationBar: Container(
+            decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.0),
+            border: Border(top: BorderSide(color: Colors.grey[200], width: 1))),
+            child: new TabBar(
+              tabs: [
+                Tab(
+                  icon: new Icon(Icons.home),
+                ),
+                Tab(
+                  icon: new Icon(Icons.shopping_cart),
+                ),
+                Tab(
+                  icon: new Icon(Icons.local_offer),
+                ),
+                Tab(
+                  icon: new Icon(Icons.phone_iphone),
+                ),
+                Tab(icon: new Icon(Icons.menu),)
+              ],
+              labelColor: colorAccent,
+              unselectedLabelColor: colorPrimary_light,
+              // indicatorSize: TabBarIndicatorSize.label,
+              // indicatorPadding: EdgeInsets.all(5.0),
+              indicatorColor: Colors.red,
+              indicator:  UnderlineTabIndicator(
+                insets: EdgeInsets.fromLTRB(00.0, 0.0, 00.0, 48.0),
+                borderSide: BorderSide( color: Colors.red,width: 1,))
             ),
-          ],
+          ),
+          backgroundColor: Colors.white,
         ),
-      ),
-    );
+      );
   }
 }

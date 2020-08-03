@@ -42,3 +42,7 @@ const ic_profile2 = Icon(Icons.menu, color: colorAccent);
 const img_primary = "images/primary.jpg";
 const img_middle = "images/middle.jpg";
 const img_secondary = "images/secondary.jpg";
+
+const img_algpost = "images/AlgeriePoste.png";
+const img_cib = "images/cib.png";
+

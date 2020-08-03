@@ -3,6 +3,7 @@ import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyDataGenerator.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyConstant.dart';
+import 'package:djezzy/Djezzy/utils/DjezzyImages.dart';
 import 'package:djezzy/Djezzy/utils/DjezzySlider.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyWidget.dart';
 import 'package:djezzy/Djezzy/model/DjezzyModels.dart';
@@ -149,7 +150,7 @@ class _DjezzyHomeState extends State<DjezzyHome> with TickerProviderStateMixin {
                                           /* 307 282*/
                                           height: height /*!isClickedOn ? 307 : 282*/,
                                           decoration: BoxDecoration(
-                                            color: colorPrimary,
+                                            color: Colors.white,
                                                 // color: Colors.black,
                                                 borderRadius: BorderRadius.only(
                                                   topLeft: Radius.circular(18.0),
@@ -244,6 +245,108 @@ class _DjezzyHomeState extends State<DjezzyHome> with TickerProviderStateMixin {
                                                                   controller:
                                                                       _tabController,
                                                                   children: [
+                                                                    Padding(
+                                                                      padding: const EdgeInsets.fromLTRB(8,10,8,8),
+                                                                      child: Container(
+                                                                        height: 96,
+                                                                        width: MediaQuery.of(context).size.width - 24,
+                                                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: colorPrimary, border: Border.all(width: 0.5, color: Colors.redAccent)),
+                                                                        child: Padding(
+                  padding: const EdgeInsets.fromLTRB(9,8,9,0),
+                  child: Container(
+                      width: 265,
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 1,
+                            child: Icon(Icons.credit_card,size: 38,color: colorAccent,),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Column(
+                              children: <Widget>[
+                                Text('Insérer les 14 chiffres de votre carte de recharge ou Bon TPE',
+                                    style: TextStyle(
+                                        color: colorPrimary_light,
+                                        fontSize: 14)),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  width: MediaQuery.of(context).size.width - 59,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: colorPrimary,
+                                    borderRadius: BorderRadius.circular(5),
+                                    boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.grey.withOpacity(0.3),
+                                      spreadRadius: 2,
+                                      blurRadius: 2,
+                                      offset: Offset(0, 2.5) // changes position of shadow
+                                      )
+                                    ]),
+                                    child : Padding(
+                                      padding: const EdgeInsets.symmetric(vertical: 10),
+                                      child: PinEntryTextField(
+                                        fields: 4,
+                                        fontSize: textSizeLargeMedium,
+                                      ),
+                                    ),
+                                ),
+                              ],
+                            )
+                          ),
+                          Container(
+                                    height: 1,
+                                    width: 220,
+                                    color: colorPrimary_light),
+                                    SizedBox(height: 2),
+                          Expanded(
+                            flex: 1,
+                            child: Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(28, 6, 22, 6),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text('ANNULERL',
+                                        style: TextStyle(
+                                            color: colorPrimary_light,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15)),
+                                    Container(height: 34,width: 34,
+                                    decoration: BoxDecoration(
+                                      color: Colors.red,
+                                      borderRadius: BorderRadius.circular(35),
+                                       boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.2),
+                                      spreadRadius: 2,
+                                      blurRadius: 1,
+                                      offset: Offset(0, 2) // changes position of shadow
+                                      )
+                                    ]),
+                                    child: Icon(Icons.calendar_view_day, color: Colors.white),
+                                    ),
+                                    Text('CONFIRMER',
+                                        style: TextStyle(
+                                            color: colorAccentGreen,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15))
+                                  ],
+                                )),
+                          )
+                        ],
+                      )))
+                    ),
+                ),
                                                                     Container(
                                                                       height: MediaQuery.of(
                                                                               context)
@@ -253,144 +356,94 @@ class _DjezzyHomeState extends State<DjezzyHome> with TickerProviderStateMixin {
                                                                           Column(
                                                                         children: <
                                                                             Widget>[
-                                                                          Row(
-                                                                            children: <
-                                                                                Widget>[
-                                                                              Column(
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: <Widget>[
-                                                                                  Container(
-                                                                                    height: MediaQuery.of(context).size.height * (0.075),
-                                                                                    child: Align(
-                                                                                      alignment: Alignment.centerLeft,
-                                                                                      child: Text(
-                                                                                        'Quota à transférer ?',
-                                                                                        style: TextStyle(color: colorPrimary_light, fontSize: 18),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                  QuantityInternetBtn('internet'),
-                                                                                ],
-                                                                              )
-                                                                            ],
-                                                                          ),
                                                                           SizedBox(
                                                                               height:
-                                                                                  10),
+                                                                                  12),
                                                                           Row(
                                                                             children: <
                                                                                 Widget>[
-                                                                              Column(
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: <Widget>[
-                                                                                  Container(
-                                                                                    height: 30,
-                                                                                    child: Align(
-                                                                                      alignment: Alignment.centerLeft,
-                                                                                      child: Text(
-                                                                                        'A qui?',
-                                                                                        style: TextStyle(color: colorPrimary_light, fontSize: 18),
+                                                                              Padding(
+                                                                                padding: const EdgeInsets.only(left: 8),
+                                                                                child: Column(
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: <Widget>[
+                                                                                    Container(
+                                                                                      height: 30,
+                                                                                      child: Align(
+                                                                                        alignment: Alignment.centerLeft,
+                                                                                        child: Text(
+                                                                                          'Choisissez votre méthode de paiment',
+                                                                                          style: TextStyle(color: colorPrimary_light, fontSize: 16),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
-                                                                                  ),
-                                                                                  SizedBox(height: 6),
-                                                                                  isClickedOn
-                                                                                      ? Container(
-                                                                                          height: 73,
-                                                                                          width: MediaQuery.of(context).size.width - 24,
-                                                                                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: colorPrimary, border: Border.all(width: 0.5, color: Colors.redAccent)),
-                                                                                          child: Align(
-                                                                                            alignment: Alignment.center,
-                                                                                            child: TextField(
-                                                                                              maxLength: 30,
-                                                                                              enableInteractiveSelection: false,
-                                                                                              keyboardType: TextInputType.number,
-                                                                                              style: TextStyle(height: 1.6),
-                                                                                              cursorColor: Colors.green[800],
-                                                                                              textAlign: TextAlign.center,
-                                                                                              autofocus: true,
-                                                                                              decoration: InputDecoration(
-                                                                                                border: InputBorder.none,
-                                                                                                hintText: 'Numéro',
-                                                                                                counterText: "",
+                                                                                    // SizedBox(height: 6),
+                                                                                    Container(
+                                                                                      height: 98,
+                                                                                      width: MediaQuery.of(context).size.width - 40,
+                                                                                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: colorPrimary, border: Border.all(width: 0.5, color: Colors.redAccent)),
+                                                                                      child: Row(
+                                                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                        children: <Widget>[
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsets.symmetric(horizontal: 43),
+                                                                                            child: Container(
+                                                                                              height: 80,
+                                                                                              width: 78,
+                                                                                              decoration: BoxDecoration(
+                                                                                                  color: Colors.white,
+                                                                                                  borderRadius: BorderRadius.circular(5),
+                                                                                                  boxShadow: [
+                                                                                                BoxShadow(
+                                                                                                    color: Colors.grey.withOpacity(0.3),
+                                                                                                    spreadRadius: 2,
+                                                                                                    blurRadius: 2,
+                                                                                                    offset: Offset(0, 2) // changes position of shadow
+                                                                                                    )
+                                                                                                  ]),
+                                                                                              child: OverflowBox(
+                                                                                                  minWidth: 0.0, 
+                                                                                                  minHeight: 0.0, 
+                                                                                                  maxHeight: 60,
+                                                                                                  maxWidth: 60,  
+                                                                                                child: Image.asset(
+                                                                                                    img_algpost)
                                                                                               ),
-                                                                                            ),
-                                                                                          ))
-                                                                                      : Container(
-                                                                                          height: 96,
-                                                                                          width: MediaQuery.of(context).size.width - 24,
-                                                                                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: colorPrimary, border: Border.all(width: 0.5, color: Colors.redAccent)),
-                                                                                          child: Padding(
-                                                                                              padding: const EdgeInsets.all(8.0),
-                                                                                              child: Row(
-                                                                                                children: <Widget>[
-                                                                                                  Column(
-                                                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                    children: <Widget>[
-                                                                                                      Container(
-                                                                                                          height: 62,
-                                                                                                          width: 62,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                              color: Colors.white,
-                                                                                                              borderRadius: BorderRadius.circular(60),
-                                                                                                              border: Border.all(
-                                                                                                                width: 0.5,
-                                                                                                                color: Colors.grey[300],
-                                                                                                              )),
-                                                                                                          child: Icon(
-                                                                                                            Icons.person_add,
-                                                                                                            size: 30,
-                                                                                                            color: colorAccent2,
-                                                                                                          )),
-                                                                                                      Text(
-                                                                                                        'Mes Contacts',
-                                                                                                        style: TextStyle(fontSize: 12),
-                                                                                                      )
-                                                                                                    ],
-                                                                                                  ),
-                                                                                                  SizedBox(width: 16),
-                                                                                                  Column(
-                                                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                    children: <Widget>[
-                                                                                                      InkWell(
-                                                                                                        onTap: () {
-                                                                                                          setState(() {
-                                                                                                            isClickedOn = true;
-                                                                                                            // widget.onChange(clickable);
-                                                                                                          });
-                                                                                                        },
-                                                                                                        child: Container(
-                                                                                                            height: 62,
-                                                                                                            width: 62,
-                                                                                                            decoration: BoxDecoration(
-                                                                                                                color: Colors.white,
-                                                                                                                borderRadius: BorderRadius.circular(60),
-                                                                                                                border: Border.all(
-                                                                                                                  width: 0.5,
-                                                                                                                  color: Colors.grey[300],
-                                                                                                                )),
-                                                                                                            child: Icon(
-                                                                                                              Icons.phone,
-                                                                                                              size: 30,
-                                                                                                              color: Colors.purple[100],
-                                                                                                            )),
-                                                                                                      ),
-                                                                                                      Text(
-                                                                                                        'Composer numéro',
-                                                                                                        style: TextStyle(fontSize: 12),
-                                                                                                      )
-                                                                                                    ],
-                                                                                                  ),
-                                                                                                ],
-                                                                                              )),
-                                                                                        ),
-                                                                                ],
-                                                                              )
-                                                                            ],
+                                                                                              ),
+                                                                                          ),   
+                                                                                          Padding(
+                                                                                            padding: const EdgeInsets.only(right: 43),
+                                                                                            child: Container(
+                                                                                              height: 80,
+                                                                                              width: 78,
+                                                                                              decoration: BoxDecoration(
+                                                                                                  color: Colors.white,
+                                                                                                  borderRadius: BorderRadius.circular(5),
+                                                                                                  boxShadow: [
+                                                                                                BoxShadow(
+                                                                                                    color: Colors.grey.withOpacity(0.3),
+                                                                                                    spreadRadius: 2,
+                                                                                                    blurRadius: 2,
+                                                                                                    offset: Offset(0, 2) // changes position of shadow
+                                                                                                    )
+                                                                                                  ]),
+                                                                                              child: OverflowBox(
+                                                                                                  minWidth: 0.0, 
+                                                                                                  minHeight: 0.0, 
+                                                                                                  maxHeight: 48,
+                                                                                                  maxWidth: 48,  
+                                                                                                child: Image.asset(
+                                                                                                    img_cib)
+                                                                                              ),),
+                                                                                          ),               
+                                                                                        ],
+                                                                                      ),
+                                                                                ),
+                                                                                ])  
                                                                           ),
                                                                         ],
                                                                       ),
-                                                                    ),
+                                                                      ]),),
                                                                     Container(
                                                                       height: MediaQuery.of(
                                                                               context)
@@ -400,174 +453,6 @@ class _DjezzyHomeState extends State<DjezzyHome> with TickerProviderStateMixin {
                                                                           Column(
                                                                         children: <
                                                                             Widget>[
-                                                                          Row(
-                                                                            children: <
-                                                                                Widget>[
-                                                                              Column(
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: <Widget>[
-                                                                                  Container(
-                                                                                    height: MediaQuery.of(context).size.height * (0.075),
-                                                                                    child: Align(
-                                                                                      alignment: Alignment.centerLeft,
-                                                                                      child: Text(
-                                                                                        'Montant à transférer ?',
-                                                                                        style: TextStyle(color: colorPrimary_light, fontSize: 18),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                  QuantityInternetBtn('credit'),
-                                                                                ],
-                                                                              )
-                                                                            ],
-                                                                          ),
-                                                                          SizedBox(
-                                                                              height:
-                                                                                  10),
-                                                                          Row(
-                                                                            children: <
-                                                                                Widget>[
-                                                                              Column(
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: <Widget>[
-                                                                                  Container(
-                                                                                    height: 30,
-                                                                                    child: Align(
-                                                                                      alignment: Alignment.centerLeft,
-                                                                                      child: Text(
-                                                                                        'A qui?',
-                                                                                        style: TextStyle(color: colorPrimary_light, fontSize: 18),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                  SizedBox(height: 6),
-                                                                                  isClickedOn
-                                                                                      ? Container(
-                                                                                          height: 73,
-                                                                                          width: MediaQuery.of(context).size.width - 24,
-                                                                                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: colorPrimary, border: Border.all(width: 0.5, color: Colors.redAccent)),
-                                                                                          child: Padding(
-                                                                                            padding: const EdgeInsets.all(8.0),
-                                                                                            child: Align(
-                                                                                              alignment: Alignment.center,
-                                                                                              child: Padding(
-                                                                                                padding: const EdgeInsets.only(left: 0),
-                                                                                                child: TextField(
-                                                                                                  keyboardType: TextInputType.number,
-                                                                                                  style: TextStyle(height: 1.6),
-                                                                                                  cursorColor: Colors.green[800],
-                                                                                                  textAlign: TextAlign.center,
-                                                                                                  autofocus: false,
-                                                                                                  decoration: InputDecoration(border: InputBorder.none, hintText: 'Numéro'),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ))
-                                                                                      : Container(
-                                                                                          height: 96,
-                                                                                          width: MediaQuery.of(context).size.width - 24,
-                                                                                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: colorPrimary, border: Border.all(width: 0.5, color: Colors.redAccent)),
-                                                                                          child: Padding(
-                                                                                              padding: const EdgeInsets.all(8.0),
-                                                                                              child: Row(
-                                                                                                children: <Widget>[
-                                                                                                  Column(
-                                                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                    children: <Widget>[
-                                                                                                      Container(
-                                                                                                          height: 62,
-                                                                                                          width: 62,
-                                                                                                          decoration: BoxDecoration(
-                                                                                                              color: Colors.white,
-                                                                                                              borderRadius: BorderRadius.circular(60),
-                                                                                                              border: Border.all(
-                                                                                                                width: 0.5,
-                                                                                                                color: Colors.grey[300],
-                                                                                                              )),
-                                                                                                          child: Icon(
-                                                                                                            Icons.person_add,
-                                                                                                            size: 30,
-                                                                                                            color: colorAccent2,
-                                                                                                          )),
-                                                                                                      Text(
-                                                                                                        'Mes Contacts',
-                                                                                                        style: TextStyle(fontSize: 12),
-                                                                                                      )
-                                                                                                    ],
-                                                                                                  ),
-                                                                                                  SizedBox(width: 16),
-                                                                                                  Column(
-                                                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                                                    children: <Widget>[
-                                                                                                      InkWell(
-                                                                                                        onTap: () {
-                                                                                                          setState(() {
-                                                                                                            isClickedOn = true;
-                                                                                                            // widget.onChange(clickable);
-                                                                                                          });
-                                                                                                        },
-                                                                                                        child: Container(
-                                                                                                            height: 62,
-                                                                                                            width: 62,
-                                                                                                            decoration: BoxDecoration(
-                                                                                                                color: Colors.white,
-                                                                                                                borderRadius: BorderRadius.circular(60),
-                                                                                                                border: Border.all(
-                                                                                                                  width: 0.5,
-                                                                                                                  color: Colors.grey[300],
-                                                                                                                )),
-                                                                                                            child: Icon(
-                                                                                                              Icons.phone,
-                                                                                                              size: 30,
-                                                                                                              color: Colors.purple[100],
-                                                                                                            )),
-                                                                                                      ),
-                                                                                                      Text(
-                                                                                                        'Composer numéro',
-                                                                                                        style: TextStyle(fontSize: 12),
-                                                                                                      )
-                                                                                                    ],
-                                                                                                  ),
-                                                                                                ],
-                                                                                              )),
-                                                                                        ),
-                                                                                ],
-                                                                              )
-                                                                            ],
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    Container(
-                                                                      height: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .height,
-                                                                      child:
-                                                                          Column(
-                                                                        children: <
-                                                                            Widget>[
-                                                                          // Row(
-                                                                          //   children: <
-                                                                          //       Widget>[
-                                                                          //     Column(
-                                                                          //       crossAxisAlignment: CrossAxisAlignment.start,
-                                                                          //       children: <Widget>[
-                                                                          //         Container(
-                                                                          //           height: MediaQuery.of(context).size.height * (0.075),
-                                                                          //           child: Align(
-                                                                          //             alignment: Alignment.centerLeft,
-                                                                          //             child: Text(
-                                                                          //               'Quota à transférer ?',
-                                                                          //               style: TextStyle(color: colorPrimary_light, fontSize: 18),
-                                                                          //             ),
-                                                                          //           ),
-                                                                          //         ),
-                                                                          //         QuantityInternetBtn('internet'),
-                                                                          //       ],
-                                                                          //     )
-                                                                          //   ],
-                                                                          // ),
                                                                           SizedBox(
                                                                               height:
                                                                                   13),
@@ -604,32 +489,36 @@ class _DjezzyHomeState extends State<DjezzyHome> with TickerProviderStateMixin {
                                                                                               decoration: BoxDecoration(
                                                                                                   color: Colors.white,
                                                                                                   borderRadius: BorderRadius.circular(5),
-                                                                                                  border: Border.all(
-                                                                                                    width: 0.5,
-                                                                                                    color: Colors.grey[300],
-                                                                                                  ),
-                                                                                                  boxShadow: [ BoxShadow(
-                                                                                                    color: Colors.black.withOpacity(0.2),
-                                                                                                    spreadRadius: 1,
+                                                                                                  boxShadow: [
+                                                                                                BoxShadow(
+                                                                                                    color: Colors.grey.withOpacity(0.3),
+                                                                                                    spreadRadius: 2,
                                                                                                     blurRadius: 2,
-                                                                                                    offset: Offset(0, 1) // changes position of shadow
+                                                                                                    offset: Offset(0, 2) // changes position of shadow
                                                                                                     )
                                                                                                   ]),
-                                                                                              child: Icon(
-                                                                                                Icons.phone,
-                                                                                                size: 30,
-                                                                                                color: Colors.purple[100],
-                                                                                              )),
-                                                                                          ),
-                                                                                                                
+                                                                                              child: Row(
+                                                                                                // crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                                                children: <Widget>[
+                                                                                                  Text(
+                                                                                                    '20',
+                                                                                                    style: TextStyle(color: Colors.black, fontSize: 40),
+                                                                                                  ),
+                                                                                                  Text(
+                                                                                                    'da',
+                                                                                                    style: TextStyle(color: colorPrimary_light, fontSize: 18),
+                                                                                                  ),
+                                                                                              ],)),
+                                                                                          ),                 
                                                                                         ],
                                                                                       ),
                                                                                 )])  
                                                                           ),
                                                                         ],
                                                                       ),
-                                                                      ]),
-                                                              )]),
+                                                                      ]),),
+                                                              ]),
                                                             ),
                                                           ]))));
                                         }),
@@ -854,3 +743,4 @@ class _DjezzyHomeState extends State<DjezzyHome> with TickerProviderStateMixin {
     );
   }
 }
+
