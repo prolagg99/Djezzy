@@ -3,6 +3,7 @@ import 'package:djezzy/Djezzy/screen/DjezzyEmergency.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyFlexy.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyHome.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyLoading.dart';
+import 'package:djezzy/Djezzy/screen/DjezzyLogin.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyOffers.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyOffersHistory.dart';
 import 'package:djezzy/Djezzy/screen/DjezzyPrimary.dart';
@@ -24,7 +25,7 @@ class Djezzy extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
-        '/': (context) => QIBusVerification(),
+        '/': (context) => DjezzyLogin(),
         DjezzyLoading.tag: (context) => DjezzyLoading(),
         DjezzyHome.tag: (context) => DjezzyHome(),
         DjezzyDashboard.tag: (context) => DjezzyDashboard(),
@@ -38,7 +39,7 @@ class Djezzy extends StatelessWidget {
         DjezzyMiddle.tag: (context) => DjezzyMiddle(),
         DjezzySecondary.tag: (context) => DjezzySecondary(),
         QIBusVerification.tag: (context) => QIBusVerification(),
-
+        DjezzyLogin.tag: (context) => DjezzyLogin(),
       },
     );
   }

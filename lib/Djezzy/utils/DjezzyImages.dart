@@ -46,3 +46,6 @@ const img_secondary = "images/secondary.jpg";
 const img_algpost = "images/AlgeriePoste.png";
 const img_cib = "images/cib.png";
 
+const img_risk= "images/risk.png";
+const img_danger = "images/danger.png";
+
