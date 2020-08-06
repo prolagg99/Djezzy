@@ -1,4 +1,4 @@
-import 'package:djezzy/Djezzy/screen/DjezzyDashboard.dart';
+import 'package:djezzy/Djezzy/screen/DjezzyLogin.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -12,7 +12,7 @@ class DjezzyLoading extends StatefulWidget {
 class _DjezzyLoadingState extends State<DjezzyLoading> {
   void loading() async {
     await Future.delayed(Duration(seconds: 3));
-    launchScreen(context, DjezzyDashboard.tag);
+    launchScreen(context, DjezzyLogin.tag);
   }
 
   @override

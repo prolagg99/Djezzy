@@ -1,5 +1,4 @@
 import 'package:djezzy/Djezzy/utils/DjezzyColors.dart';
-import 'package:djezzy/Djezzy/utils/DjezzyImages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:djezzy/Djezzy/utils/DjezzyExtension.dart';
@@ -18,14 +17,7 @@ class DjezzyDashboard extends StatefulWidget {
 
 class DjezzyDashboardState extends State<DjezzyDashboard> {
   var isSelected = 0;
-
-  final List<Widget> _children = [
-    DjezzyHome(),
-    DjezzyOffers(),
-    DjezzyQuiz(),
-    DjezzyFlexy(),
-    DjezzyProfile(),
-  ];
+  
   @override
   Widget build(BuildContext context) {
     changeStatusColor(Colors.black);
